@@ -11,6 +11,10 @@
           <element id="library" level="project" name="Spring-4.3.7.RELEASE" />
           <element id="library" level="project" name="Spring MVC-4.3.7.RELEASE" />
           <element id="library" level="project" name="Spring Security-3.2.5" />
+          <element id="library" level="project" name="jstl-1.2" />
+          <element id="library" level="module" name="JUnit4" module-name="BlueMountain" />
+          <element id="library" level="project" name="commons-dbcp2-2.1.1" />
+          <element id="library" level="project" name="mysql-connector-java-6.0.5" />
         </element>
       </element>
     </root>
