@@ -11,6 +11,8 @@
           <element id="library" level="project" name="Spring-4.3.7.RELEASE" />
           <element id="library" level="project" name="Spring MVC-4.3.7.RELEASE" />
           <element id="library" level="project" name="Spring Security-3.2.5" />
+          <element id="library" level="project" name="jstl-1.2" />
+          <element id="library" level="module" name="JUnit4" module-name="BlueMountain" />
         </element>
       </element>
     </root>
