@@ -2,6 +2,8 @@ package bluemountain.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.ServletRegistration;
+
 /**
  * Created by MainasuK on 2017-3-5.
  */
@@ -20,6 +22,12 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     @Override
     protected String[] getServletMappings() {
         return new String[] { "/" };
+    }
+
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        // Enable Not Found Exception throw
+        registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
     }
 
 }
