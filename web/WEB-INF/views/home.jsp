@@ -27,6 +27,9 @@
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
+                    <c:if test='${null != username && "" != username}'>
+                        欢迎登陆，${username}
+                    </c:if>
                     Heading
                 </div>
                 <div class="panel-body">
@@ -43,7 +46,7 @@
                     <h4>超市管理系统</h4>
                 </div>
                 <div class="panel-body">
-                    <sf:form action="/login" method="post">
+                    <sf:form action="/" method="post">
                         <div class="form-group">
                             <label>用户名</label>
                             <input class="form-control" type="text" name="username">
@@ -55,10 +58,10 @@
                         <div class="form-group">
                             <input class="form-control btn btn-primary" type="submit" value="登录">
                         </div>
-                        <%--<c:if test="${null != param.error}">--%>
-                            <%--<!-- Display error message -->--%>
-                            <%--<small style="color: red">用户名或密码错误</small>--%>
-                        <%--</c:if>--%>
+                        <c:if test="${null != param.error}">
+                            <!-- Display error message -->
+                            <small style="color: red">用户名或密码错误</small>
+                        </c:if>
                     </sf:form>
                 </div>
 

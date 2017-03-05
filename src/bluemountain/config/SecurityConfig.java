@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery(
-                        "SELECT username, passowrd, enabled FROM users WHERE username = ?"
+                        "SELECT username, password, enabled FROM users WHERE username = ?"
                 ).authoritiesByUsernameQuery(
                         "SELECT username, role FROM user_roles WHERE username = ?"
         );
@@ -46,11 +46,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                     .logoutSuccessUrl("/")
                 .and()
-                    .exceptionHandling().accessDeniedPage("403")
+                    .exceptionHandling().accessDeniedPage("/403")
                 .and()
                     .authorizeRequests()
                     .antMatchers("/root").hasRole("ROOT")
                     .antMatchers(HttpMethod.POST, "/").authenticated()
                     .anyRequest().permitAll();
     }
+
 }

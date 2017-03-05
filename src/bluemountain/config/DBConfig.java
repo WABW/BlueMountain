@@ -20,8 +20,8 @@ public class DBConfig {
     @Bean
     BasicDataSource dataSource(
             @Value("${db.url}") String url,
-            @Value("${db.username") String username,
-            @Value("${db.password") String password
+            @Value("${db.username}") String username,
+            @Value("${db.password}") String password
     ) {
         BasicDataSource dataSource = new BasicDataSource();
 
