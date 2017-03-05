@@ -1,5 +1,6 @@
-package bluemountain.web;
+package bluemountain.test;
 
+import bluemountain.web.HomeController;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
 
