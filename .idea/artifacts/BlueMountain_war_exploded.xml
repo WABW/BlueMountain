@@ -9,12 +9,13 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="module" name="JUnit4" module-name="BlueMountain" />
-          <element id="library" level="project" name="servlet-api" />
           <element id="library" level="project" name="commons-dbcp" />
           <element id="library" level="project" name="jstl" />
           <element id="library" level="project" name="mysql-connector" />
           <element id="library" level="project" name="spring" />
           <element id="library" level="project" name="spring-security" />
+          <element id="library" level="project" name="servlet-api" />
+          <element id="library" level="project" name="spring-mvc" />
         </element>
       </element>
     </root>
