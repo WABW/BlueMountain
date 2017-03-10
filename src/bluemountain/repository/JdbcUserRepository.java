@@ -15,13 +15,11 @@ import java.util.List;
  */
 @Repository
 @EnableTransactionManagement
-public class JdbcUserRepository implements UserRepository {
+public class JdbcUserRepository extends JdbcRepository implements UserRepository {
 
-    private JdbcOperations jdbcOperations;
 
-    @Autowired
     public JdbcUserRepository(JdbcOperations jdbcOperations) {
-        this.jdbcOperations = jdbcOperations;
+        super(jdbcOperations);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class User {
 
     private String role;
 
-    public User() { }
+    public User() {}
 
     public User(String username, String password, Boolean enabled, String role) {
         this.username = username;

@@ -23,7 +23,7 @@ public class ChargesController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String search(Model model) {
-        model.addAttribute("chargeTypes", chargeTypeRepository.charges());
+        model.addAttribute("chargeTypes", chargeTypeRepository.all());
 
         return "search/charges";
     }
