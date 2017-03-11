@@ -8,69 +8,90 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
+
+<!DOCTYPE html>
+<html class='no-js' lang='en'>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <title>Title</title>
-
-    <!-- Bootstrap -->
+    <meta charset='utf-8'>
+    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <title>登录</title>
+    <meta content='lab2023' name='author'>
+    <meta content='' name='description'>
+    <meta content='' name='keywords'>
+    <link href="/resources/Bycss/stylesheets/application-a07755f5.css" rel="stylesheet" type="text/css" />
+    <link href="/resources/Bycss/images/favicon.ico" rel="icon" type="image/ico" />
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
 
-<div class="container">
-    <div class="row" style="margin-top: 44px">
-        <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <c:if test='${null != username && "" != username}'>
-                        欢迎登陆，${username}
-                    </c:if>
-                    Heading
-                </div>
-                <div class="panel-body">
-                    Body
-                </div>
-                <div class="panel-footer">
-                    Footer
-                </div>
+</head>
+<body class='login'>
+<div class='wrapper'>
+    <div class='row'>
+        <div class='col-lg-12'>
+            <div class='brand text-center'>
+                <h1>
+                    <div class='logo-icon'>
+                        <i class='icon-beer'></i></div>
+                    <h3>
+                        Patient management system
+                    </h3>
+                </h1>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h4>医患信息管理系统</h4>
-                </div>
-                <div class="panel-body">
-                    <sf:form action="/" method="post">
-                        <div class="form-group">
-                            <label>用户名</label>
-                            <input class="form-control" type="text" name="username">
+    </div>
+    <div class='row'>
+        <div class='col-lg-12'>
+           <sf:form action="/" method="post">
+                <fieldset class='text-center'>
+                    <legend><h5>Login to your account</h5></legend>
+                    <div class='form-group'>
+                        <input class='form-control' placeholder='账号' type='text' name="username">
+                    </div>
+                    <div class='form-group'>
+                        <input class='form-control' placeholder='密码' type='password' name="password">
+                    </div>
+                    <div class='text-center'>
+                        <div class='checkbox'>
+                            <label>
+                                <input type='checkbox'>
+                                Remember me on this computer
+                            </label>
                         </div>
-                        <div class="form-group">
-                            <label>密码</label>
-                            <input class="form-control" type="password" name="password">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control btn btn-primary" type="submit" value="登录">
-                        </div>
-                        <c:if test="${null != param.error}">
-                            <!-- Display error message -->
-                            <small style="color: red">用户名或密码错误</small>
-                        </c:if>
-                    </sf:form>
-                </div>
 
-            </div>
+                        <input class="btn btn-success" type="submit" value="登录">
+                        <br>
+                        <a href="register_account .jsp">注册</a>
+                        <br>
+                        <a href="forgot_password.jsp">忘记密码?</a>
+                    </div>
+                </fieldset>
+               <c:if test="${null != param.error}">
+                   <!-- Display error message -->
+                   <small style="color: red">用户名或密码错误</small>
+               </c:if>
+               </sf:form>
         </div>
     </div>
 </div>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+<div class="panel-heading">
+    <c:if test='${null != username && "" != username}'>
+        欢迎登陆，${username}
+    </c:if>
+    Heading
+</div>
+<div class="panel-body">
+    Body
+</div>
+<div class="panel-footer">
+    Footer
+</div>
+<!-- Footer -->
+<!-- Javascripts -->
+
+
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/resources/Bootstrap/js/bootstrap.min.js"></script>
