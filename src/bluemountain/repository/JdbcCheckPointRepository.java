@@ -21,6 +21,6 @@ public class JdbcCheckPointRepository extends JdbcRepository implements CheckPoi
 
     @Override
     public List<CheckPoint> all() {
-        return jdbcOperations.query("SELECT * FROM check_list", (resultSet, i) -> new CheckPoint(resultSet));
+        return jdbcOperations.query("SELECT * FROM checkpoint", (resultSet, i) -> new CheckPoint(resultSet));
     }
 }

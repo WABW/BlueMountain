@@ -19,17 +19,20 @@
 <div class="container">
     <table class="table table-hover">
         <tr>
-            <th>Charge Type</th>
+            <th>Test Item</th>
+            <th>Test Item2</th>
         </tr>
 
-        <c:forEach items="${chargeTypes}" var="chargeType">
+        <c:forEach items="${testItem}" var="testItem">
             <tr>
-                <td>${chargeType.type}</td>
+                <td>${testItem.itemCode}</td>
+                <td>${testItem.itemName}</td>
             </tr>
         </c:forEach>
     </table>
+
 </div>
-<a href="/search/checkitems">jkl</a>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

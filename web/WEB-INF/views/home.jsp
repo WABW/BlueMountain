@@ -43,7 +43,7 @@
         <div class="col-md-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h4>超市管理系统</h4>
+                    <h4>医患信息管理系统</h4>
                 </div>
                 <div class="panel-body">
                     <sf:form action="/" method="post">

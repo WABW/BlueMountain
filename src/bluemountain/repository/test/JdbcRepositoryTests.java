@@ -3,7 +3,8 @@ package bluemountain.repository.test;
 import bluemountain.config.DBConfig;
 import bluemountain.pojo.ChargeType;
 import bluemountain.pojo.CheckItem;
-import bluemountain.protocol.DoctorRepository;
+import bluemountain.pojo.CheckList;
+import bluemountain.pojo.TestItem;
 import bluemountain.repository.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,17 +38,23 @@ public class JdbcRepositoryTests {
     @Test
     public void testCheckItemRepositoryAll() {
         List<CheckItem> checkItems = new JdbcCheckItemRepository(template).all();
-        Assert.notNull(checkItems, "");
+        checkItems.stream().forEach(checkItem -> System.out.println(checkItem.getExamclass()));
+        checkItems.stream().forEach(checkItem -> System.out.println(checkItem.getPerformedby()));
+
+        Assert.notNull(checkItems, "checkItems should not null");
     }
 
     @Test
     public void testCheckPointRepositoryAll() {
         Assert.notNull(new JdbcCheckPointRepository(template).all(), "");
+
     }
 
     @Test
-    public void testCheckRepositoryAll() {
-        Assert.notNull(new JdbcCheckRepository(template).all(), "");
+    public void testCheckListRepositoryAll() {
+//        Assert.notNull(new JdbcCheckListRepository(template).all(), "");
+        List<CheckList> checkLists = new JdbcCheckListRepository(template).all();
+        checkLists.stream().forEach(checkList -> System.out.println(checkList.getExamNo()));
     }
 
     @Test
@@ -62,12 +69,14 @@ public class JdbcRepositoryTests {
 
     @Test
     public void testTestItemRepositoryAll() {
-        Assert.notNull(new JdbcTestItemRepository(template).all(), "");
+//        Assert.notNull(new JdbcTestItemRepository(template).all(), "");
+        List<TestItem> testItems = new JdbcTestItemRepository(template).all();
+        testItems.stream().forEach(testItem -> System.out.println(testItem.getItemCode()));
     }
 
     @Test
-    public void testTestRepositoryAll() {
-        Assert.notNull(new JdbcTestRepository(template).all(), "");
+    public void testTestListRepositoryAll() {
+        Assert.notNull(new JdbcTestListRepository(template).all(), "");
     }
 
 }
