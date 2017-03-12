@@ -1,5 +1,7 @@
 package bluemountain.web;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +17,12 @@ import java.security.Principal;
 public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model, Principal principal) {
+    public String home(Model model, Principal principal, Authentication authentication) {
+
+
+        if (authentication != null && authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_DOCTOR"))) {
+            return "redirect: /search";
+        }
 
         if (null == principal || null == principal.getName()) {
             model.addAttribute("username", "");

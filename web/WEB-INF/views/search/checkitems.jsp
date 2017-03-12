@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%--Just Demo--%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -17,20 +18,33 @@
 <body>
 
 <div class="container">
-    <table class="table table-hover">
-        <tr>
-            <th>Check Item</th>
-            <th>Check Item2</th>
-        </tr>
-
-        <c:forEach items="${checkItem}" var="checkItem">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <%--Search bar--%>
+            <sf:form action="/search/checkitems" method="post">
+                <div class="input-group">
+                        <input name="keyword" type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Search</button>
+                        </span>
+                </div>
+            </sf:form>
+        </div>
+        <%--Table--%>
+        <table class="table table-hover">
             <tr>
-                <td>${checkItem.performedby}</td>
-                <td>${checkItem.examclass}</td>
+                <th>Check Item</th>
+                <th>Check Item2</th>
             </tr>
-        </c:forEach>
-    </table>
 
+            <c:forEach items="${checkItem}" var="checkItem">
+                <tr>
+                    <td>${checkItem.performedby}</td>
+                    <td>${checkItem.examclass}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

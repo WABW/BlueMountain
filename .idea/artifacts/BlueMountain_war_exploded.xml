@@ -13,7 +13,6 @@
           <element id="library" level="project" name="spring-mvc" />
           <element id="library" level="project" name="spring-security" />
           <element id="library" level="project" name="mysql-connector" />
-          <element id="library" level="project" name="jstl-1.2" />
           <element id="library" level="module" name="JUnit4" module-name="BlueMountain" />
           <element id="library" level="project" name="servlet-api" />
           <element id="library" level="project" name="jstl" />

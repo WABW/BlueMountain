@@ -17,20 +17,30 @@
 <body>
 
 <div class="container">
-    <table class="table table-hover">
-        <tr>
-            <th>Check Item</th>
-            <th>Check Item2</th>
-        </tr>
-
-        <c:forEach items="${checkItem}" var="checkItem">
-            <tr>
-                <td>${checkItem.performedby}</td>
-                <td>${checkItem.examclass}</td>
-            </tr>
-        </c:forEach>
-    </table>
-
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <%--Search bar--%>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Search</button>
+                </span>
+            </div>
+            <%--Table--%>
+            <table class="table table-hover">
+                <tr>
+                    <th>Check Item</th>
+                    <th>Check Item2</th>
+                </tr>
+                <c:forEach items="${checkItem}" var="checkItem">
+                    <tr>
+                        <td>${checkItem.performedby}</td>
+                        <td>${checkItem.examclass}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

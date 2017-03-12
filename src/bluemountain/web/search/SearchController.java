@@ -7,8 +7,11 @@ import bluemountain.protocol.TestItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.stream.Collectors;
 
 /**
  * Created by MainasuK on 2017-3-9.
@@ -39,9 +42,28 @@ public class SearchController {
 
         return "search/charges" ;
     }
+
     @RequestMapping(value = "/checkitems", method = RequestMethod.GET)
     public String checkitems(Model model) {
         model.addAttribute("checkItem", checkItemRepository.all());
+
+        return "search/checkitems";
+    }
+
+    @RequestMapping(value = "/checkitems", method = RequestMethod.POST)
+    public String checkitems(String keyword) {
+        return "redirect:/search/checkitems/" + keyword.trim(); // Be careful with the '/'
+    }
+
+    @RequestMapping(value = "/checkitems/{keyword}", method = RequestMethod.GET)
+    public String showCheckitemsFor(@PathVariable String keyword, Model model) {
+        model.addAttribute("checkItem",
+                checkItemRepository.all()
+                        .parallelStream()
+                        .filter(item ->
+                                item.getExamclass().contains(keyword) || ("" + item.getPerformedby()).contains(keyword)
+                        ).collect(Collectors.toList())
+        );
 
         return "search/checkitems" ;
     }

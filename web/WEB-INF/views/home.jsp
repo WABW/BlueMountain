@@ -25,6 +25,7 @@
 
 </head>
 <body class='login'>
+
 <div class='wrapper'>
     <div class='row'>
         <div class='col-lg-12'>
@@ -76,22 +77,21 @@
 
 
 
-<div class="panel-heading">
-    <c:if test='${null != username && "" != username}'>
-        欢迎登陆，${username}
-    </c:if>
-    Heading
-</div>
-<div class="panel-body">
-    Body
-</div>
-<div class="panel-footer">
-    Footer
-</div>
+<%--<div class="panel-heading">--%>
+    <%--<c:if test='${null != username && "" != username}'>--%>
+        <%--欢迎登陆，${username}--%>
+    <%--</c:if>--%>
+    <%--Heading--%>
+<%--</div>--%>
+<%--<div class="panel-body">--%>
+    <%--Body--%>
+<%--</div>--%>
+<%--<div class="panel-footer">--%>
+    <%--Footer--%>
+<%--</div>--%>
 <!-- Footer -->
+
 <!-- Javascripts -->
-
-
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/resources/Bootstrap/js/bootstrap.min.js"></script>
