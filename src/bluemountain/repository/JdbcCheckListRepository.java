@@ -21,6 +21,6 @@ public class JdbcCheckListRepository extends JdbcRepository implements CheckList
 
     @Override
     public List<CheckList> all() {
-        return jdbcOperations.query("SELECT* FROM check_list", (resultSet, i) -> new CheckList(resultSet));
+        return jdbcOperations.query("SELECT * FROM check_list_view", (resultSet, i) -> new CheckList(resultSet));
     }
 }

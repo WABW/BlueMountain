@@ -1,8 +1,5 @@
 package bluemountain.pojo;
 
-import com.mysql.cj.api.x.Result;
-import com.sun.org.apache.regexp.internal.RE;
-
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +17,7 @@ public class CheckList {
     private String physicSign;
     private String relevantDiag;
     private String clinicDiag;
-    private int performedby;
+    private CheckItem checkItem;
     private int patientsource;
     private Date requestDateTime;
     private int requestDept;
@@ -31,7 +28,7 @@ public class CheckList {
     private String chargeType;
     private Date realReportDateTime;
 
-    public CheckList(ResultSet resultSet) throws SQLException{
+    public CheckList(ResultSet resultSet) throws SQLException {
         examNo = resultSet.getInt("EXAM_NO");
         patientId = resultSet.getInt("PATIENT_ID");
         visitId = resultSet.getInt("VISIT_ID");
@@ -40,7 +37,7 @@ public class CheckList {
         physicSign = resultSet.getString("PHYS_SIGN");
         relevantDiag = resultSet.getString("RELEVANT_DIAG");
         clinicDiag = resultSet.getString("CLIN_DIAG");
-        performedby = resultSet.getInt("PERFORMED_BY");
+        checkItem = new CheckItem(resultSet);
         patientsource = resultSet.getInt("PATIENT_SOURCE");
         requestDateTime = resultSet.getDate("REQ_DATE_TIME");
         requestDept = resultSet.getInt("REQ_DEPT");
@@ -109,12 +106,12 @@ public class CheckList {
         this.relevantDiag = relevantDiag;
     }
 
-    public int getPerformedby() {
-        return performedby;
+    public CheckItem getCheckItem() {
+        return checkItem;
     }
 
-    public void setPerformedby(int performedby) {
-        this.performedby = performedby;
+    public void setCheckItem(CheckItem checkItem) {
+        this.checkItem = checkItem;
     }
 
     public int getPatientsource() {

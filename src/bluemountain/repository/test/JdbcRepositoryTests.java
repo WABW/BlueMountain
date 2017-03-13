@@ -52,7 +52,7 @@ public class JdbcRepositoryTests {
 
     @Test
     public void testCheckListRepositoryAll() {
-//        Assert.notNull(new JdbcCheckListRepository(template).all(), "");
+        Assert.notNull(new JdbcCheckListRepository(template).all(), "");
         List<CheckList> checkLists = new JdbcCheckListRepository(template).all();
         checkLists.stream().forEach(checkList -> System.out.println(checkList.getExamNo()));
     }
@@ -77,6 +77,11 @@ public class JdbcRepositoryTests {
     @Test
     public void testTestListRepositoryAll() {
         Assert.notNull(new JdbcTestListRepository(template).all(), "");
+    }
+
+    @Test
+    public void testPatientExamRepositoryAll() {
+        Assert.notNull(new JdbcPatientExamRepository(template).all(), "");
     }
 
 }

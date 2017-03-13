@@ -18,6 +18,7 @@ import java.util.List;
 public class JdbcUserRepository extends JdbcRepository implements UserRepository {
 
 
+    @Autowired
     public JdbcUserRepository(JdbcOperations jdbcOperations) {
         super(jdbcOperations);
     }
