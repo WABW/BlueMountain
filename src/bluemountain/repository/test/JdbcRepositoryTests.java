@@ -45,12 +45,6 @@ public class JdbcRepositoryTests {
     }
 
     @Test
-    public void testCheckPointRepositoryAll() {
-        Assert.notNull(new JdbcCheckPointRepository(template).all(), "");
-
-    }
-
-    @Test
     public void testCheckListRepositoryAll() {
         Assert.notNull(new JdbcCheckListRepository(template).all(), "");
         List<CheckList> checkLists = new JdbcCheckListRepository(template).all();
@@ -82,6 +76,21 @@ public class JdbcRepositoryTests {
     @Test
     public void testPatientExamRepositoryAll() {
         Assert.notNull(new JdbcPatientExamRepository(template).all(), "");
+    }
+
+    @Test
+    public void testCheckSubclassRepositoryAll() {
+        Assert.notNull(new JdbcCheckSubclassRepository(template).all(), "");
+    }
+
+    @Test
+    public void testTestSubclassRepositoryAll() {
+        Assert.notNull(new JdbcTestSubClassRepository(template).all(), "");
+    }
+
+    @Test
+    public void testDepartmentRepositoryAll() {
+        Assert.notNull(new JdbcDepartmentRepository(template).all(), "");
     }
 
 }
