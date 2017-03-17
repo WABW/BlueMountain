@@ -103,11 +103,11 @@
         tem++;
         inputtem++;
         var newDiv=document.createElement('div');
-        var html = '<select  id=item'+tem+' >', dates = dateGenerate(), i;
+        var html = '<select name=item'+tem+' >', dates = dateGenerate(), i;
         for(i = 0; i < dates.length; i++) {
             html += "<option value='"+dates[i]+"'>"+dates[i]+"</option>";
         }
-        html += '</select>-<input id=input'+inputtem+'>';
+        html += '</select>-<input name=input'+inputtem+'>';
         newDiv.innerHTML= html;
         document.getElementById(divname).appendChild(newDiv);
     }
