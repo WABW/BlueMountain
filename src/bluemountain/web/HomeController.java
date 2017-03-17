@@ -21,7 +21,7 @@ public class HomeController {
 
 
         if (authentication != null && authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_DOCTOR"))) {
-            return "redirect: /search";
+            return "redirect: /search/searchcheckinfo";
         }
 
         if (null == principal || null == principal.getName()) {

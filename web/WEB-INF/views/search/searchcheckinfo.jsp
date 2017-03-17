@@ -20,7 +20,7 @@
 
 <div class="container">
     <div class="panel panel-default">
-        <sf:form action="/search/searchcheckinfos" method="POST">
+        <sf:form action="/search/searchcheckinfo" method="POST">
             <%--========================--%>
             <%--<div id="addDiv">--%>
                 <%--<div id="row1"><a onclick='addRow()'>+</a><a onclick='delRow()'>-</a><br>--%>
@@ -39,7 +39,7 @@
             检查项：<select name="department">
             <option value=""><c:out value="- 不限 -" /></option>
             　　<c:forEach items="${checkItem}" var="checkItem">
-            　　　　<option value="${checkItem.performedby}">${checkItem.examclass}</option>
+            　　　　<option value="${checkItem.examclass}">${checkItem.examclass}</option>
         </c:forEach>
             </select>
 
@@ -98,16 +98,16 @@
     }
     // The Above function will create an array of five consecutive year from the the current year.
     var tem=0;
-    var inputtem=100;
+    var inputtem=0;
     function addSelect(divname) {
         tem++;
         inputtem++;
         var newDiv=document.createElement('div');
-        var html = '<select  id='+tem+' >', dates = dateGenerate(), i;
+        var html = '<select  id=item'+tem+' >', dates = dateGenerate(), i;
         for(i = 0; i < dates.length; i++) {
             html += "<option value='"+dates[i]+"'>"+dates[i]+"</option>";
         }
-        html += '</select>-<input id='+inputtem+'>';
+        html += '</select>-<input id=input'+inputtem+'>';
         newDiv.innerHTML= html;
         document.getElementById(divname).appendChild(newDiv);
     }

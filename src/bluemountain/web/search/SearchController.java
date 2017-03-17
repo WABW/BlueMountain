@@ -1,5 +1,6 @@
 package bluemountain.web.search;
 
+import bluemountain.pojo.PatientExam;
 import bluemountain.protocol.*;
 import com.sun.javafx.sg.prism.NGShape;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -21,6 +27,7 @@ public class SearchController {
     private CheckListRepository checkListRepository;
     private TestItemRepository testItemRepository;
     private DepartmentRepository departmentRepository;
+    private PatientExamRepository patientExamRepository;
 
     ChargeTypeRepository chargeTypeRepository;
 
@@ -31,12 +38,14 @@ public class SearchController {
                             CheckItemRepository checkItemsRepository,
                             CheckListRepository checkListRepository,
                             TestItemRepository testItemRepository,
-                            DepartmentRepository departmentRepository) {
+                            DepartmentRepository departmentRepository,
+                            PatientExamRepository patientExamRepository) {
         this.chargeTypeRepository = chargeTypeRepository;
         this.checkItemRepository = checkItemsRepository;
         this.checkListRepository = checkListRepository;
         this.testItemRepository = testItemRepository;
         this.departmentRepository = departmentRepository;
+        this.patientExamRepository = patientExamRepository;
     }
 
     @RequestMapping(value = "/charges", method = RequestMethod.GET)
@@ -95,6 +104,24 @@ public class SearchController {
     @RequestMapping(value = "/searchcheckinfo", method = RequestMethod.GET)
     public String searchcheckinfo(Model model) {
         model.addAttribute("checkItem", checkItemRepository.all());
+
+        return "search/searchcheckinfo" ;
+    }
+
+    @RequestMapping(value = "/searchcheckinfo", method = RequestMethod.POST)
+    public String searchcheckinfo(Model model, HttpServletRequest request) {
+        model.addAttribute("checkItem", checkItemRepository.all());
+
+        String department = request.getParameter("department");
+        List<PatientExam> patientExams = patientExamRepository.all().stream().filter(exam -> exam.getCheckList().getCheckItem().getExamclass().contentEquals(department)).collect(Collectors.toList());
+
+        Enumeration<String> names = request.getParameterNames();
+        while (names.hasMoreElements()) {
+            String key = names.nextElement();
+            String value = request.getParameter(key);
+
+            System.out.println(key + "::" + value);
+        }
 
         return "search/searchcheckinfo" ;
     }

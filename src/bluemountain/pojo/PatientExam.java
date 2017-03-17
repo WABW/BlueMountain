@@ -22,4 +22,19 @@ public class PatientExam {
         this(new Patient(resultSet), new CheckList(resultSet));
     }
 
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public CheckList getCheckList() {
+        return checkList;
+    }
+
+    public void setCheckList(CheckList checkList) {
+        this.checkList = checkList;
+    }
 }
