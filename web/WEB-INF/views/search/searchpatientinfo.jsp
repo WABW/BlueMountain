@@ -14,20 +14,45 @@
 
     <!-- Bootstrap -->
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
 
 <div class="container">
     <div class="panel panel-default">
-        
+        <div class="panel-heading">
+            <sf:form action="/search/departments" method="POST">
+            性别：<select name="choseSex">
+                <option value="">- 不限 -</option>
+                <option value="男">- 男性 -</option>
+                <option value="女">- 女性 -</option>
+            </select>
 
+            年龄段：<input type="text" name="min" value=""> —
+            <input type="text" name="max" value="">
+
+
+            科室：<select name="selectLevel">
+                <option value=""><c:out value="- 不限 -" /></option>
+                　　<c:forEach items="${departments}" var="department">
+                　　　　<option value="${department.requestDepartmentId}">${department.departmentName}</option>
+                </c:forEach>
+            </select>
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Submit</button>
+            </span>
+            </sf:form>
+        </div>
 
     </div>
 </div>
+
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/resources/Bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>

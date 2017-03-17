@@ -16,4 +16,19 @@ public class Department {
         this.departmentName = resultSet.getString("DEPT_NAME");
     }
 
+    public int getRequestDepartmentId() {
+        return requestDepartmentId;
+    }
+
+    public void setRequestDepartmentId(int requestDepartmentId) {
+        this.requestDepartmentId = requestDepartmentId;
+    }
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
 }

@@ -4,12 +4,14 @@ import bluemountain.pojo.Department;
 import bluemountain.protocol.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by MainasuK on 2017-3-14.
  */
+@Repository
 public class JdbcDepartmentRepository extends JdbcRepository implements DepartmentRepository {
 
     @Autowired

@@ -19,13 +19,21 @@
 <div class="container">
     <table class="table table-hover">
         <tr>
-            <th>Doctor Name</th>
+            <th>Patient Info</th>
+            <th>Patient Info</th>
+            <th>Patient Info</th>
+            <th>Patient Info</th>
+            <th>Patient Info</th>
 
         </tr>
 
-        <c:forEach items="${doctor}" var="doctor">
+        <c:forEach items="${patientInfo}" var="patientInfo">
             <tr>
-                <td>${doctor.doctorName}</td>
+                <td>${patientInfo.patientId}</td>
+                <td>${patientInfo.sex}</td>
+                <td>${patientInfo.dateOfBirth}</td>
+                <td>${patientInfo.namePhonetic}</td>
+                <td>${patientInfo.patientLocalId}</td>
             </tr>
         </c:forEach>
     </table>

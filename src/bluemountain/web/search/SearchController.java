@@ -1,9 +1,7 @@
 package bluemountain.web.search;
 
-import bluemountain.protocol.ChargeTypeRepository;
-import bluemountain.protocol.CheckItemRepository;
-import bluemountain.protocol.CheckListRepository;
-import bluemountain.protocol.TestItemRepository;
+import bluemountain.protocol.*;
+import com.sun.javafx.sg.prism.NGShape;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,18 +20,23 @@ public class SearchController {
     private CheckItemRepository checkItemRepository;
     private CheckListRepository checkListRepository;
     private TestItemRepository testItemRepository;
+    private DepartmentRepository departmentRepository;
+
     ChargeTypeRepository chargeTypeRepository;
+
 
 
     @Autowired
     public SearchController(ChargeTypeRepository chargeTypeRepository,
                             CheckItemRepository checkItemsRepository,
                             CheckListRepository checkListRepository,
-                            TestItemRepository testItemRepository) {
+                            TestItemRepository testItemRepository,
+                            DepartmentRepository departmentRepository) {
         this.chargeTypeRepository = chargeTypeRepository;
         this.checkItemRepository = checkItemsRepository;
         this.checkListRepository = checkListRepository;
         this.testItemRepository = testItemRepository;
+        this.departmentRepository = departmentRepository;
     }
 
     @RequestMapping(value = "/charges", method = RequestMethod.GET)
@@ -80,6 +83,20 @@ public class SearchController {
         model.addAttribute("testItem", testItemRepository.all());
 
         return "search/testitems" ;
+    }
+
+    @RequestMapping(value = "/searchpatientinfo", method = RequestMethod.GET)
+    public String searchpatientinfo(Model model) {
+        model.addAttribute("departments", departmentRepository.all());
+
+        return "search/searchpatientinfo" ;
+    }
+
+    @RequestMapping(value = "/searchcheckinfo", method = RequestMethod.GET)
+    public String searchcheckinfo(Model model) {
+        model.addAttribute("checkItem", checkItemRepository.all());
+
+        return "search/searchcheckinfo" ;
     }
 
     @RequestMapping(method = RequestMethod.GET)

@@ -19,14 +19,13 @@
 <div class="container">
     <table class="table table-hover">
         <tr>
-            <th>Check Item</th>
-            <th>Check Item2</th>
+            <th>Doctor Name</th>
+
         </tr>
 
-        <c:forEach items="${checkItem}" var="checkItem">
+        <c:forEach items="${doctor}" var="doctor">
             <tr>
-                <td>${checkItem.performedby}</td>
-                <td>${checkItem.examclass}</td>
+                <td>${doctor.doctorName}</td>
             </tr>
         </c:forEach>
     </table>

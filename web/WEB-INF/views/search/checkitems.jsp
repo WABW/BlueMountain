@@ -21,7 +21,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <%--Search bar--%>
-            <sf:form action="/search/checkitems" method="post">
+            <sf:form action="/search/checkitems" method="POST">
                 <div class="input-group">
                         <input name="keyword" type="text" class="form-control" placeholder="Search for...">
                         <span class="input-group-btn">
