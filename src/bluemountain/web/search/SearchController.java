@@ -116,8 +116,12 @@ public class SearchController {
         String or  = "并或";
         String not = "不含";
 
+        List<PatientExam> patientExams = patientExamRepository.all().stream().collect(Collectors.toList());
+
         String department = request.getParameter("department");
-        List<PatientExam> patientExams = patientExamRepository.all().stream().filter(exam -> exam.getCheckList().getCheckItem().getExamclass().contentEquals(department)).collect(Collectors.toList());
+        if (!department.contains("不限")) {
+            patientExams = patientExams.stream().filter(exam -> exam.getCheckList().getCheckItem().getExamclass().contentEquals(department)).collect(Collectors.toList());
+        }
 
         Enumeration<String> names = request.getParameterNames();
         while (names.hasMoreElements()) {
