@@ -27,6 +27,7 @@ public class CheckList {
     private int chargeIndicator;
     private String chargeType;
     private Date realReportDateTime;
+    private String departmentName;
 
     public CheckList(ResultSet resultSet) throws SQLException {
         examNo = resultSet.getInt("EXAM_NO");
@@ -47,6 +48,7 @@ public class CheckList {
         chargeIndicator = resultSet.getInt("CHARGE_INDICATOR");
         chargeType = resultSet.getString("CHARGE_TYPE");
         realReportDateTime = resultSet.getDate("REAL_REPORT_DATE_TIME");
+        departmentName = resultSet.getString("DEPT_NAME");
 
     }
 
@@ -197,6 +199,11 @@ public class CheckList {
     public CheckList() {
     }
 
+    public String getDepartmentName() {
+        return departmentName;
+    }
 
-
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
 }

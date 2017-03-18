@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -97,6 +94,41 @@ public class SearchController {
     @RequestMapping(value = "/searchpatientinfo", method = RequestMethod.GET)
     public String searchpatientinfo(Model model) {
         model.addAttribute("departments", departmentRepository.all());
+
+        return "search/searchpatientinfo" ;
+    }
+
+    @RequestMapping(value = "/searchpatientinfo", method = RequestMethod.POST)
+    public String searchpatientinfo(Model model, String choseSex, Integer min, Integer max, String selectLevel) {
+        model.addAttribute("departments", departmentRepository.all());
+
+        System.out.println(choseSex);
+        System.out.println(min);
+        System.out.println(max);
+        System.out.println(selectLevel);
+
+        List<PatientExam> patientExams = patientExamRepository.all();
+
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
+        if (!"".equals(choseSex)) {
+            patientExams = patientExams.stream().filter(exam -> exam.getPatient().getSex().equals(choseSex)).collect(Collectors.toList());
+        }
+
+        if (null != min) {
+            patientExams = patientExams.stream().filter(exam -> (currentYear - exam.getPatient().getDateOfBirth().toLocalDate().getYear()) >= min).collect(Collectors.toList());
+        }
+
+        if (null != max) {
+            patientExams = patientExams.stream().filter(exam -> (currentYear - exam.getPatient().getDateOfBirth().toLocalDate().getYear()) <= max).collect(Collectors.toList());
+        }
+
+        if (!"".equals(selectLevel)) {
+            patientExams = patientExams.stream().filter(exam -> exam.getCheckList().getDepartmentName().equals(selectLevel)).collect(Collectors.toList());
+        }
+
+
+        patientExams.stream().forEach(exam -> System.out.println(exam.getPatient().getSex()));
 
         return "search/searchpatientinfo" ;
     }

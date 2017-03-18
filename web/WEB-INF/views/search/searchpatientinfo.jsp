@@ -21,7 +21,7 @@
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <sf:form action="/search/departments" method="POST">
+            <sf:form method="POST">
             性别：<select name="choseSex">
                 <option value="">- 不限 -</option>
                 <option value="男">- 男性 -</option>
@@ -35,7 +35,7 @@
             科室：<select name="selectLevel">
                 <option value=""><c:out value="- 不限 -" /></option>
                 　　<c:forEach items="${departments}" var="department">
-                　　　　<option value="${department.requestDepartmentId}">${department.departmentName}</option>
+                　　　　<option value="${department.departmentName}">${department.departmentName}</option>
                 </c:forEach>
             </select>
             <span class="input-group-btn">
