@@ -60,9 +60,8 @@
                         </div>
 
                         <input class="btn btn-success" type="submit" value="登录">
-                        <br>
-                        <a href="register_account .jsp">注册</a>
-                        <br>
+                        <br/>
+                        <br/>
                         <a href="forgot_password.jsp">忘记密码?</a>
                     </div>
                 </fieldset>
