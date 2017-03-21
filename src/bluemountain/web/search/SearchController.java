@@ -182,6 +182,13 @@ public class SearchController {
         return "search/searchcheckinfo" ;
     }
 
+    @RequestMapping(value = "/searchtestinfo", method = RequestMethod.GET)
+    public String searchtestinfo(Model model) {
+        model.addAttribute("testItem", testItemRepository.all());
+
+        return "search/searchtestinfo" ;
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public String search() {
 

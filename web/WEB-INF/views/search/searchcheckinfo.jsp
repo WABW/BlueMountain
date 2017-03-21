@@ -108,18 +108,21 @@
             html += "<option value='"+dates[i]+"'>"+dates[i]+"</option>";
         }
         html += '</select>-<input name=input'+inputtem+'>';
+        html += '<a href="#" onclick="delSelect(this.parentNode)">X</a>';
         newDiv.innerHTML= html;
         document.getElementById(divname).appendChild(newDiv);
     }
-
-
-    function delSelect(){
-        var index = document.getElementsByName('div');
-
-
-
+    
+    function delSelect(_element) {
+        var _parentElement = _element.parentNode;
+        if(_parentElement){
+            _parentElement.removeChild(_element);
+        }
 
     }
+
+
+
 
 
 </script>
