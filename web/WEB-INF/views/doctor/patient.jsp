@@ -30,18 +30,18 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <sf:form method="POST">
                 <label for="gender" >性别：</label>
-                <select name="gender" id="gender">
+                <select name="gender" id="gender" class="btn btn-default">
                     <option value="">- 不限 -</option>
                     <option value="男">- 男性 -</option>
                     <option value="女">- 女性 -</option>
                 </select>
 
-                年龄段：<input type="text" name="min" value=""> —
-                <input type="text" name="max" value="">
+                年龄段：<input type="text" name="min" value="" class="btn btn-default"> —
+                <input type="text" name="max" value="" class="btn btn-default">
 
 
                 <label for="department" >科室：</label>
-                <select name="department" id="department">
+                <select name="department" id="department" class="btn btn-default">
                     <option value=""><c:out value="- 不限 -" /></option>
                     <c:forEach items="${departments}" var="department">
                         　　　　<option value="${department.departmentName}">${department.departmentName}</option>
