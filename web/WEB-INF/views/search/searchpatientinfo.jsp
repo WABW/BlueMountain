@@ -17,33 +17,47 @@
 
 </head>
 <body>
+<jsp:include page="navbar.jsp" flush="true">
+    <jsp:param name="pages" value="checklist"/>
+</jsp:include>
 
-<div class="container">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <sf:form method="POST">
-            性别：<select name="choseSex">
-                <option value="">- 不限 -</option>
-                <option value="男">- 男性 -</option>
-                <option value="女">- 女性 -</option>
-            </select>
+<div class="container-fluid">
+    <div class="row">
+        <!—左侧导航栏-->
+        <jsp:include page="sidebar.jsp" flush="true">
+            <jsp:param name="pages" value="checklist"/>
+        </jsp:include>
+        <!—右侧管理控制台-->
 
-            年龄段：<input type="text" name="min" value=""> —
-            <input type="text" name="max" value="">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <sf:form method="POST">
+                    性别：<select name="choseSex">
+                        <option value="">- 不限 -</option>
+                        <option value="男">- 男性 -</option>
+                        <option value="女">- 女性 -</option>
+                    </select>
+
+                    年龄段：<input type="text" name="min" value=""> —
+                    <input type="text" name="max" value="">
 
 
-            科室：<select name="selectLevel">
-                <option value=""><c:out value="- 不限 -" /></option>
-                　　<c:forEach items="${departments}" var="department">
-                　　　　<option value="${department.departmentName}">${department.departmentName}</option>
-                </c:forEach>
-            </select>
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">Submit</button>
-            </span>
-            </sf:form>
+                    科室：<select name="selectLevel">
+                        <option value=""><c:out value="- 不限 -" /></option>
+                        　　<c:forEach items="${departments}" var="department">
+                        　　　　<option value="${department.departmentName}">${department.departmentName}</option>
+                        </c:forEach>
+                    </select>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Submit</button>
+                    </span>
+                    </sf:form>
+                </div>
+
+            </div>
         </div>
-
     </div>
 </div>
 

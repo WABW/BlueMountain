@@ -15,58 +15,71 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="navbar.jsp" flush="true">
+    <jsp:param name="pages" value="checklist"/>
+</jsp:include>
+<!—自适应布局-->
+<div class="container-fluid">
+    <div class="row">
+        <!—左侧导航栏-->
+        <jsp:include page="sidebar.jsp" flush="true">
+            <jsp:param name="pages" value="checklist"/>
+        </jsp:include>
+        <!—右侧管理控制台-->
 
-<div class="container">
-    <table class="table table-hover">
-        <tr>
-            <th>Check List</th>
-            <th>Check List2</th>
-            <th>Check List3</th>
-            <th>Check List4</th>
-            <th>Check List5</th>
-            <th>Check List6</th>
-            <th>Check List7</th>
-            <th>Check List8</th>
-            <th>Check List9</th>
-            <th>Check List10</th>
-            <th>Check List11</th>
-            <th>Check List12</th>
-            <th>Check List13</th>
-            <th>Check List14</th>
-            <th>Check List15</th>
-            <th>Check List16</th>
-            <th>Check List17</th>
-            <th>Check List18</th>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <table class=" table table-striped table-bordered table-hover">
+                <tr>
+                    <th>Check List</th>
+                    <th>Check List2</th>
+                    <th>Check List3</th>
+                    <th>Check List4</th>
+                    <th>Check List5</th>
+                    <th>Check List6</th>
+                    <th>Check List7</th>
+                    <th>Check List8</th>
+                    <th>Check List9</th>
+                    <th>Check List10</th>
+                    <th>Check List11</th>
+                    <th>Check List12</th>
+                    <th>Check List13</th>
+                    <th>Check List14</th>
+                    <th>Check List15</th>
+                    <th>Check List16</th>
+                    <th>Check List17</th>
+                    <th>Check List18</th>
 
 
-        </tr>
+                </tr>
 
-        <c:forEach items="${checkList}" var="checklist">
-            <tr>
-                <td>${checklist.examNo}</td>
-                <td>${checklist.patientId}</td>
-                <td>${checklist.visitId}</td>
-                <td>${checklist.examsubClass}</td>
-                <td>${checklist.clinicSymptom}</td>
-                <td>${checklist.physicSign}</td>
-                <td>${checklist.relevantDiag}</td>
-                <td>${checklist.clinicDiag}</td>
-                <td>${checklist.performedby}</td>
-                <td>${checklist.patientsource}</td>
-                <td>${checklist.requestDateTime}</td>
-                <td>${checklist.requestDept}</td>
-                <td>${checklist.scheduledDateTime}</td>
-                <td>${checklist.notice}</td>
-                <td>${checklist.resultStatus}</td>
-                <td>${checklist.chargeIndicator}</td>
-                <td>${checklist.chargeType}</td>
-                <td>${checklist.realReportDateTime}</td>
+                <c:forEach items="${checkList}" var="checklist">
+                    <tr>
+                        <td>${checklist.examNo}</td>
+                        <td>${checklist.patientId}</td>
+                        <td>${checklist.visitId}</td>
+                        <td>${checklist.examsubClass}</td>
+                        <td>${checklist.clinicSymptom}</td>
+                        <td>${checklist.physicSign}</td>
+                        <td>${checklist.relevantDiag}</td>
+                        <td>${checklist.clinicDiag}</td>
+                        <td>${checklist.performedby}</td>
+                        <td>${checklist.patientsource}</td>
+                        <td>${checklist.requestDateTime}</td>
+                        <td>${checklist.requestDept}</td>
+                        <td>${checklist.scheduledDateTime}</td>
+                        <td>${checklist.notice}</td>
+                        <td>${checklist.resultStatus}</td>
+                        <td>${checklist.chargeIndicator}</td>
+                        <td>${checklist.chargeType}</td>
+                        <td>${checklist.realReportDateTime}</td>
 
-            </tr>
-        </c:forEach>
-    </table>
-
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
 </div>
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>

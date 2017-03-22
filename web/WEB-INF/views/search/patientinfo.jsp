@@ -15,28 +15,43 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="navbar.jsp" flush="true">
+    <jsp:param name="pages" value="checklist"/>
+</jsp:include>
 
-<div class="container">
-    <table class="table table-hover">
-        <tr>
-            <th>Patient Info</th>
-            <th>Patient Info</th>
-            <th>Patient Info</th>
-            <th>Patient Info</th>
-            <th>Patient Info</th>
+<div class="container-fluid">
+    <div class="row">
+        <!—左侧导航栏-->
+        <jsp:include page="sidebar.jsp" flush="true">
+            <jsp:param name="pages" value="checklist"/>
+        </jsp:include>
+        <!—右侧管理控制台-->
 
-        </tr>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-        <c:forEach items="${patientInfo}" var="patientInfo">
+        <table class="table table-hover">
             <tr>
-                <td>${patientInfo.patientId}</td>
-                <td>${patientInfo.sex}</td>
-                <td>${patientInfo.dateOfBirth}</td>
-                <td>${patientInfo.namePhonetic}</td>
-                <td>${patientInfo.patientLocalId}</td>
+                <th>Patient Info</th>
+                <th>Patient Info</th>
+                <th>Patient Info</th>
+                <th>Patient Info</th>
+                <th>Patient Info</th>
+
             </tr>
-        </c:forEach>
-    </table>
+
+            <c:forEach items="${patientInfo}" var="patientInfo">
+                <tr>
+                    <td>${patientInfo.patientId}</td>
+                    <td>${patientInfo.sex}</td>
+                    <td>${patientInfo.dateOfBirth}</td>
+                    <td>${patientInfo.namePhonetic}</td>
+                    <td>${patientInfo.patientLocalId}</td>
+                </tr>
+            </c:forEach>
+        </table>
+        </div>
+    </div>
+</div>
 
 </div>
 

@@ -15,21 +15,35 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="navbar.jsp" flush="true">
+    <jsp:param name="pages" value="checklist"/>
+</jsp:include>
 
-<div class="container">
-    <table class="table table-hover">
-        <tr>
-            <th>Test Item</th>
-            <th>Test Item2</th>
-        </tr>
+<div class="container-fluid">
+    <div class="row">
+        <!—左侧导航栏-->
+        <jsp:include page="sidebar.jsp" flush="true">
+            <jsp:param name="pages" value="checklist"/>
+        </jsp:include>
+        <!—右侧管理控制台-->
 
-        <c:forEach items="${testItem}" var="testItem">
-            <tr>
-                <td>${testItem.itemCode}</td>
-                <td>${testItem.itemName}</td>
-            </tr>
-        </c:forEach>
-    </table>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+            <table class="table table-hover">
+                <tr>
+                    <th>Test Item</th>
+                    <th>Test Item2</th>
+                </tr>
+
+                <c:forEach items="${testItem}" var="testItem">
+                    <tr>
+                        <td>${testItem.itemCode}</td>
+                        <td>${testItem.itemName}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
 
 </div>
 

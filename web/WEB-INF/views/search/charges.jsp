@@ -15,20 +15,35 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="navbar.jsp" flush="true">
+    <jsp:param name="pages" value="checklist"/>
+</jsp:include>
 
-<div class="container">
-    <table class="table table-hover">
-        <tr>
-            <th>Charge Type</th>
-        </tr>
+    <div class="container-fluid">
+        <div class="row">
+            <!—左侧导航栏-->
+            <jsp:include page="sidebar.jsp" flush="true">
+                <jsp:param name="pages" value="checklist"/>
+            </jsp:include>
+            <!—右侧管理控制台-->
 
-        <c:forEach items="${chargeTypes}" var="chargeType">
-            <tr>
-                <td>${chargeType.type}</td>
-            </tr>
-        </c:forEach>
-    </table>
-</div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th>Charge Type</th>
+                </tr>
+
+                <c:forEach items="${chargeTypes}" var="chargeType">
+                    <tr>
+                        <td>${chargeType.type}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+            </div>
+        </div>
+    </div>
+
+
 <a href="/search/checkitems">jkl</a>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>

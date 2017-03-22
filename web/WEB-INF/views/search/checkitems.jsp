@@ -16,34 +16,47 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="navbar.jsp" flush="true">
+    <jsp:param name="pages" value="checklist"/>
+</jsp:include>
 
-<div class="container">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <%--Search bar--%>
-            <sf:form action="/search/checkitems" method="POST">
-                <div class="input-group">
-                        <input name="keyword" type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit">Search</button>
-                        </span>
-                </div>
-            </sf:form>
-        </div>
-        <%--Table--%>
-        <table class="table table-hover">
-            <tr>
-                <th>Check Item</th>
-                <th>Check Item2</th>
-            </tr>
 
-            <c:forEach items="${checkItem}" var="checkItem">
+<div class="container-fluid">
+    <div class="row">
+        <!—左侧导航栏-->
+        <jsp:include page="sidebar.jsp" flush="true">
+            <jsp:param name="pages" value="checklist"/>
+        </jsp:include>
+        <!—右侧管理控制台-->
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="panel-heading">
+                <%--Search bar--%>
+                <sf:form action="/search/checkitems" method="POST">
+                    <div class="input-group">
+                            <input name="keyword" type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Search</button>
+                            </span>
+                    </div>
+                </sf:form>
+            </div>
+            <%--Table--%>
+            <table class=" table table-striped table-bordered table-hover">
                 <tr>
-                    <td>${checkItem.performedby}</td>
-                    <td>${checkItem.examclass}</td>
+                    <th>Check Item</th>
+                    <th>Check Item2</th>
                 </tr>
-            </c:forEach>
-        </table>
+
+                <c:forEach items="${checkItem}" var="checkItem">
+                    <tr>
+                        <td>${checkItem.performedby}</td>
+                        <td>${checkItem.examclass}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+
     </div>
 </div>
 

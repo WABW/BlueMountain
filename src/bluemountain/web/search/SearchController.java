@@ -195,6 +195,19 @@ public class SearchController {
         return "redirect: /search/checkitems" ;
     }
 
+    @RequestMapping(value = "/navbar")
+    public String navbar() {
+        // m odel.addAttribute("checkItem", checkItemRepository.all());
+
+        return "search/navbar";
+    }
+    @RequestMapping(value = "/sidebar")
+    public String sidebar() {
+        // m odel.addAttribute("checkItem", checkItemRepository.all());
+
+        return "search/sidebar";
+    }
+
 
 
 }

@@ -17,45 +17,58 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="navbar.jsp" flush="true">
+    <jsp:param name="pages" value="checklist"/>
+</jsp:include>
+<!—自适应布局-->
+<div class="container-fluid">
+    <div class="row">
+        <!—左侧导航栏-->
+        <jsp:include page="sidebar.jsp" flush="true">
+            <jsp:param name="pages" value="checklist"/>
+        </jsp:include>
+        <!—右侧管理控制台-->
 
-<div class="container">
-    <div class="panel panel-default">
-        <sf:form action="/search/searchcheckinfo" method="POST">
-            <%--========================--%>
-            <%--<div id="addDiv">--%>
-                <%--<div id="row1"><a onclick='addRow()'>+</a><a onclick='delRow()'>-</a><br>--%>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-                    <%--<select name="row1" id="row1">--%>
-                        <%--<option value="并含">并含</option>--%>
-                        <%--<option value="并或">并或</option>--%>
-                        <%--<option value='不含'>不含</option>--%>
-                    <%--</select><input type='text' name='textfield' id='textfield'>--%>
-                <%--</div>--%>
-            <%--</div>--%>
+            <div class="panel panel-default">
+                <sf:form action="/search/searchcheckinfo" method="POST">
+                    <%--========================--%>
+                    <%--<div id="addDiv">--%>
+                        <%--<div id="row1"><a onclick='addRow()'>+</a><a onclick='delRow()'>-</a><br>--%>
 
-            <%--===================================--%>
+                            <%--<select name="row1" id="row1">--%>
+                                <%--<option value="并含">并含</option>--%>
+                                <%--<option value="并或">并或</option>--%>
+                                <%--<option value='不含'>不含</option>--%>
+                            <%--</select><input type='text' name='textfield' id='textfield'>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
 
-            <%--==================================--%>
-            检查项：<select name="department">
-            <option value=""><c:out value="- 不限 -" /></option>
-            　　<c:forEach items="${checkItem}" var="checkItem">
-            　　　　<option value="${checkItem.examclass}">${checkItem.examclass}</option>
-        </c:forEach>
-            </select>
+                    <%--===================================--%>
 
-            <div id="select-container">
+                    <%--==================================--%>
+                    检查项：<select name="department">
+                    <option value=""><c:out value="- 不限 -" /></option>
+                    　　<c:forEach items="${checkItem}" var="checkItem">
+                    　　　　<option value="${checkItem.examclass}">${checkItem.examclass}</option>
+                </c:forEach>
+                    </select>
+
+                    <div id="select-container">
+                    </div>
+                    <a id="add" onclick="addSelect('select-container');">增加查询条件</a>
+                    <%--==================================--%>
+
+
+
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Submit</button>
+                    </span>
+                </sf:form>
+
             </div>
-            <a id="add" onclick="addSelect('select-container');">增加查询条件</a>
-            <%--==================================--%>
-
-
-
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">Submit</button>
-            </span>
-        </sf:form>
-
-
+        </div>
 
     </div>
 </div>
