@@ -28,29 +28,54 @@
 
         <!—右侧管理控制台-->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <sf:form method="POST">
-                <label for="gender" >性别：</label>
-                <select name="gender" id="gender" class="btn btn-default">
-                    <option value="">- 不限 -</option>
-                    <option value="男">- 男性 -</option>
-                    <option value="女">- 女性 -</option>
-                </select>
-
-                年龄段：<input type="text" name="min" value="" class="btn btn-default"> —
-                <input type="text" name="max" value="" class="btn btn-default">
+            <form method="POST">
+                <div class="row">
 
 
-                <label for="department" >科室：</label>
-                <select name="department" id="department" class="btn btn-default">
-                    <option value=""><c:out value="- 不限 -" /></option>
-                    <c:forEach items="${departments}" var="department">
-                        　　　　<option value="${department.departmentName}">${department.departmentName}</option>
-                    </c:forEach>
-                </select>
+                    <form class="form-inline">
+                        <div class="form-group">
 
-                <button class="btn btn-default" type="submit">Submit</button>
 
-            </sf:form>
+                            <label for="gender" ></label>
+                            <div class="col-xs-2">
+                                <select name="gender" id="gender" class="form-control" >
+                                    <option value="">-所有性别-</option>
+                                    <option value="男">- 男性 -</option>
+                                    <option value="女">- 女性 -</option>
+                                </select>
+                            </div>
+
+
+
+                            <label for="department" ></label>
+                            <div class="col-xs-2">
+                                <select name="department" id="department" class="form-control" >
+                                    <option value=""><c:out value="-所有科室-" /></option>
+                                    <c:forEach items="${departments}" var="department">
+                                        　　　　<option value="${department.departmentName}">${department.departmentName}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control" id="min" name="min" value="" placeholder="最小年龄">
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control" id="max" name="max" value="" placeholder="最大年龄">
+                            </div>
+
+
+                            <button class="btn btn-default" type="submit">Submit</button>
+                        </div>
+                    </form>
+
+
+
+
+
+
+
+
             <table class="table table-hover">
 
                 <tr>
