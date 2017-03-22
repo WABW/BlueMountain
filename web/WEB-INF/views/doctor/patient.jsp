@@ -25,30 +25,29 @@
         <jsp:include page="../search/sidebar.jsp" flush="true">
             <jsp:param name="pages" value="checklist"/>
         </jsp:include>
+
         <!—右侧管理控制台-->
-
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-        <table class="table table-hover">
-            <tr>
-                <th>Patient Info</th>
-                <th>Patient Info</th>
-                <th>Patient Info</th>
-                <th>Patient Info</th>
-                <th>Patient Info</th>
-
-            </tr>
-
-            <c:forEach items="${patientInfos}" var="patientInfo">
+            <table class="table table-hover">
                 <tr>
-                    <td>${patientInfo.patientId}</td>
-                    <td>${patientInfo.sex}</td>
-                    <td>${patientInfo.dateOfBirth}</td>
-                    <td>${patientInfo.namePhonetic}</td>
-                    <td>${patientInfo.patientLocalId}</td>
+                    <th>Patient ID</th>
+                    <th>Patient Info</th>
+                    <th>Patient Info</th>
+                    <th>Patient Info</th>
+                    <th>Patient Info</th>
+
                 </tr>
-            </c:forEach>
-        </table>
+
+                <c:forEach items="${patients}" var="patient">
+                    <tr>
+                        <td>${patient.patientId}</td>
+                        <td>${patient.sex}</td>
+                        <td>${patient.dateOfBirth}</td>
+                        <%--<td>${patient.namePhonetic}</td>--%>
+                        <%--<td>${patient.patientLocalId}</td>--%>
+                    </tr>
+                </c:forEach>
+            </table>
         </div>
     </div>
 </div>

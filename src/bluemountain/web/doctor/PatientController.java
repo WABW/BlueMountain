@@ -21,11 +21,11 @@ public class PatientController {
         this.patientRepository = patientRepository;
     }
 
-    @RequestMapping(value = "doctor/patientinfo", method = RequestMethod.GET)
+    @RequestMapping(value = "doctor/patient", method = RequestMethod.GET)
     public String patientinfo(Model model) {
-        model.addAttribute("patientInfos", patientRepository.all());
+        model.addAttribute("patients", patientRepository.all());
 
-        return "doctor/patientinfo";
+        return "doctor/patient";
     }
 
 }

@@ -1,10 +1,7 @@
 package bluemountain.repository.test;
 
 import bluemountain.config.DBConfig;
-import bluemountain.pojo.ChargeType;
-import bluemountain.pojo.CheckItem;
-import bluemountain.pojo.CheckList;
-import bluemountain.pojo.TestItem;
+import bluemountain.pojo.*;
 import bluemountain.repository.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -58,12 +55,14 @@ public class JdbcRepositoryTests {
 
     @Test
     public void testPatientRepositoryAll() {
-        Assert.notNull(new JdbcPatientRepository(template).all(), "");
+        List<Patient> patients = new JdbcPatientRepository(template).all();
+        Assert.notNull(patients, "");
+        patients.stream().forEach(testItem -> System.out.println(testItem.getPatientId()));
     }
 
     @Test
     public void testTestItemRepositoryAll() {
-//        Assert.notNull(new JdbcTestItemRepository(template).all(), "");
+        Assert.notNull(new JdbcTestItemRepository(template).all(), "");
         List<TestItem> testItems = new JdbcTestItemRepository(template).all();
         testItems.stream().forEach(testItem -> System.out.println(testItem.getItemCode()));
     }
@@ -76,6 +75,8 @@ public class JdbcRepositoryTests {
     @Test
     public void testPatientExamRepositoryAll() {
         Assert.notNull(new JdbcPatientExamRepository(template).all(), "");
+
+        System.out.println();
     }
 
     @Test
