@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+1<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--Just Demo--%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -28,7 +28,31 @@
 
         <!—右侧管理控制台-->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <sf:form method="POST">
+                <label for="gender" >性别：</label>
+                <select name="gender" id="gender">
+                    <option value="">- 不限 -</option>
+                    <option value="男">- 男性 -</option>
+                    <option value="女">- 女性 -</option>
+                </select>
+
+                年龄段：<input type="text" name="min" value=""> —
+                <input type="text" name="max" value="">
+
+
+                <label for="department" >科室：</label>
+                <select name="department" id="department">
+                    <option value=""><c:out value="- 不限 -" /></option>
+                    <c:forEach items="${departments}" var="department">
+                        　　　　<option value="${department.departmentName}">${department.departmentName}</option>
+                    </c:forEach>
+                </select>
+
+                <button class="btn btn-default" type="submit">Submit</button>
+
+            </sf:form>
             <table class="table table-hover">
+
                 <tr>
                     <th>Patient ID</th>
                     <th>Patient Info</th>
