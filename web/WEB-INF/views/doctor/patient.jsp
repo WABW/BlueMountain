@@ -33,8 +33,8 @@
                     <th>Patient ID</th>
                     <th>Patient Info</th>
                     <th>Patient Info</th>
-                    <th>Patient Info</th>
-                    <th>Patient Info</th>
+                    <th>Check Count</th>
+                    <th>Test Count</th>
 
                 </tr>
 
@@ -43,8 +43,8 @@
                         <td>${patient.patientId}</td>
                         <td>${patient.sex}</td>
                         <td>${patient.dateOfBirth}</td>
-                        <%--<td>${patient.namePhonetic}</td>--%>
-                        <%--<td>${patient.patientLocalId}</td>--%>
+                        <td>${patient.checkCount}</td>
+                        <td>${patient.testCount}</td>
                     </tr>
                 </c:forEach>
             </table>

@@ -13,6 +13,11 @@ import java.util.List;
  */
 @Repository
 public class JdbcPatientRepository extends JdbcRepository implements PatientRepository {
+    private static String patientSQL = "SELECT pi.*,\n" +
+            "(SELECT COUNT(*) FROM check_list cl WHERE pi.PATIENT_ID = cl.PATIENT_ID) AS CHECK_COUNT,\n" +
+            "(SELECT COUNT(*) FROM test_list tl WHERE pi.PATIENT_ID = tl.PATIENT_ID) AS TEST_COUNT\n" +
+            "FROM patient_info pi\n" +
+            "\n";
 
     @Autowired
     public JdbcPatientRepository(JdbcOperations jdbcOperations) {
@@ -21,6 +26,6 @@ public class JdbcPatientRepository extends JdbcRepository implements PatientRepo
 
     @Override
     public List<Patient> all() {
-        return jdbcOperations.query("SELECT * FROM patient_info", (resultSet, i) -> new Patient(resultSet));
+        return jdbcOperations.query(patientSQL, (resultSet, i) -> new Patient(resultSet));
     }
 }

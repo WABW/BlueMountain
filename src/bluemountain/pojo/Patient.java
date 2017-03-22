@@ -13,6 +13,9 @@ public class Patient {
     String sex;
     Date dateOfBirth;
 
+    Integer checkCount;
+    Integer testCount;
+
     public Patient() {
     }
 
@@ -20,6 +23,8 @@ public class Patient {
         this.patientId = resultSet.getInt("PATIENT_ID");
         this.sex = resultSet.getString("SEX");
         this.dateOfBirth = resultSet.getDate("DATE_OF_BIRTH");
+        this.checkCount = resultSet.getInt("CHECK_COUNT");
+        this.testCount = resultSet.getInt("TEST_COUNT");
     }
 
     public Integer getPatientId() {
@@ -44,5 +49,21 @@ public class Patient {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Integer getCheckCount() {
+        return checkCount;
+    }
+
+    public void setCheckCount(Integer checkCount) {
+        this.checkCount = checkCount;
+    }
+
+    public Integer getTestCount() {
+        return testCount;
+    }
+
+    public void setTestCount(Integer testCount) {
+        this.testCount = testCount;
     }
 }
