@@ -15,14 +15,14 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="navbar.jsp" flush="true">
+<jsp:include page="../search/navbar.jsp" flush="true">
     <jsp:param name="pages" value="checklist"/>
 </jsp:include>
 
 <div class="container-fluid">
     <div class="row">
         <!—左侧导航栏-->
-        <jsp:include page="sidebar.jsp" flush="true">
+        <jsp:include page="../search/sidebar.jsp" flush="true">
             <jsp:param name="pages" value="checklist"/>
         </jsp:include>
         <!—右侧管理控制台-->
@@ -39,7 +39,7 @@
 
             </tr>
 
-            <c:forEach items="${patientInfo}" var="patientInfo">
+            <c:forEach items="${patientInfos}" var="patientInfo">
                 <tr>
                     <td>${patientInfo.patientId}</td>
                     <td>${patientInfo.sex}</td>
@@ -53,7 +53,7 @@
     </div>
 </div>
 
-</div>
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>

@@ -26,6 +26,8 @@ public class SearchController {
     private DepartmentRepository departmentRepository;
     private PatientExamRepository patientExamRepository;
 
+
+
     ChargeTypeRepository chargeTypeRepository;
 
 
@@ -36,13 +38,15 @@ public class SearchController {
                             CheckListRepository checkListRepository,
                             TestItemRepository testItemRepository,
                             DepartmentRepository departmentRepository,
-                            PatientExamRepository patientExamRepository) {
+                            PatientExamRepository patientExamRepository,
+                            PatientRepository patientRepository) {
         this.chargeTypeRepository = chargeTypeRepository;
         this.checkItemRepository = checkItemsRepository;
         this.checkListRepository = checkListRepository;
         this.testItemRepository = testItemRepository;
         this.departmentRepository = departmentRepository;
         this.patientExamRepository = patientExamRepository;
+
     }
 
     @RequestMapping(value = "/charges", method = RequestMethod.GET)
@@ -207,6 +211,7 @@ public class SearchController {
 
         return "search/sidebar";
     }
+
 
 
 
