@@ -2,7 +2,6 @@ package bluemountain.web.search;
 
 import bluemountain.pojo.PatientExam;
 import bluemountain.protocol.*;
-import com.sun.javafx.sg.prism.NGShape;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,30 +55,30 @@ public class SearchController {
         return "search/charges" ;
     }
 
-    @RequestMapping(value = "/checkitems", method = RequestMethod.GET)
-    public String checkitems(Model model) {
-        model.addAttribute("checkItem", checkItemRepository.all());
-
-        return "search/checkitems";
-    }
-
-    @RequestMapping(value = "/checkitems", method = RequestMethod.POST)
-    public String checkitems(String keyword) {
-        return "redirect:/search/checkitems/" + keyword.trim(); // Be careful with the '/'
-    }
-
-    @RequestMapping(value = "/checkitems/{keyword}", method = RequestMethod.GET)
-    public String showCheckitemsFor(@PathVariable String keyword, Model model) {
-        model.addAttribute("checkItem",
-                checkItemRepository.all()
-                        .parallelStream()
-                        .filter(item ->
-                                item.getExamclass().contains(keyword) || ("" + item.getPerformedby()).contains(keyword)
-                        ).collect(Collectors.toList())
-        );
-
-        return "search/checkitems" ;
-    }
+//    @RequestMapping(value = "/checkitems", method = RequestMethod.GET)
+//    public String checkitems(Model model) {
+//        model.addAttribute("checkItem", checkItemRepository.all());
+//
+//        return "search/checkitems";
+//    }
+//
+//    @RequestMapping(value = "/checkitems", method = RequestMethod.POST)
+//    public String checkitems(String keyword) {
+//        return "redirect:/search/checkitems/" + keyword.trim(); // Be careful with the '/'
+//    }
+//
+//    @RequestMapping(value = "/checkitems/{keyword}", method = RequestMethod.GET)
+//    public String showCheckitemsFor(@PathVariable String keyword, Model model) {
+//        model.addAttribute("checkItem",
+//                checkItemRepository.all()
+//                        .parallelStream()
+//                        .filter(item ->
+//                                item.getExamclass().contains(keyword) || ("" + item.getPerformedby()).contains(keyword)
+//                        ).collect(Collectors.toList())
+//        );
+//
+//        return "search/checkitems" ;
+//    }
 
     @RequestMapping(value = "/checklist", method = RequestMethod.GET)
     public String checklist(Model model) {
@@ -141,7 +140,7 @@ public class SearchController {
     public String searchcheckinfo(Model model) {
         model.addAttribute("checkItem", checkItemRepository.all());
 
-        return "search/searchcheckinfo" ;
+        return "doctor/check";
     }
 
     @RequestMapping(value = "/searchcheckinfo", method = RequestMethod.POST)
@@ -183,7 +182,7 @@ public class SearchController {
 
         patientExams.stream().forEach(exam -> System.out.println(exam.getCheckList().getPhysicSign()));
 
-        return "search/searchcheckinfo" ;
+        return "doctor/check";
     }
 
     @RequestMapping(value = "/searchtestinfo", method = RequestMethod.GET)
