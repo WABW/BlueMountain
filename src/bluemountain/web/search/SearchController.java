@@ -210,6 +210,12 @@ public class SearchController {
 
         return "search/sidebar";
     }
+    @RequestMapping(value = "/index")
+    public String index() {
+        // m odel.addAttribute("checkItem", checkItemRepository.all());
+
+        return "search/index";
+    }
 
 
 
