@@ -32,7 +32,7 @@
             <sf:form method="POST">
                 <div class="row">
 
-                    <form class="form-inline" method="post">
+                    <%--<form class="form-inline" method="post">--%>
                         <div class="form-group">
 
 
@@ -65,16 +65,16 @@
 
                             <button class="btn btn-default" type="submit">Submit</button>
                         </div>
-                    </form>
+                    <%--</form>--%>
 
                     <table class="table table-hover">
 
                         <tr>
-                            <th>Patient ID</th>
-                            <th>Patient Info</th>
-                            <th>Patient Info</th>
-                            <th>Check Count</th>
-                            <th>Test Count</th>
+                            <th>病患ID</th>
+                            <th>病患性别</th>
+                            <th>出生日期</th>
+                            <th>检查项数目</th>
+                            <th>检验项数目</th>
 
                         </tr>
 
