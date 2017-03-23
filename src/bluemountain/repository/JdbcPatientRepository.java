@@ -16,8 +16,7 @@ public class JdbcPatientRepository extends JdbcRepository implements PatientRepo
     private static String patientSQL = "SELECT pi.*,\n" +
             "(SELECT COUNT(*) FROM check_list cl WHERE pi.PATIENT_ID = cl.PATIENT_ID) AS CHECK_COUNT,\n" +
             "(SELECT COUNT(*) FROM test_list tl WHERE pi.PATIENT_ID = tl.PATIENT_ID) AS TEST_COUNT\n" +
-            "FROM patient_info pi\n" +
-            "\n";
+            "FROM patient_info pi";
 
     @Autowired
     public JdbcPatientRepository(JdbcOperations jdbcOperations) {

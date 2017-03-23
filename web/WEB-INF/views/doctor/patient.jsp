@@ -1,4 +1,5 @@
-1<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%--Just Demo--%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -28,11 +29,10 @@
 
         <!—右侧管理控制台-->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <form method="POST">
+            <sf:form method="POST">
                 <div class="row">
 
-
-                    <form class="form-inline">
+                    <form class="form-inline" method="post">
                         <div class="form-group">
 
 
@@ -44,8 +44,6 @@
                                     <option value="女">- 女性 -</option>
                                 </select>
                             </div>
-
-
 
                             <label for="department" ></label>
                             <div class="col-xs-2">
@@ -69,34 +67,29 @@
                         </div>
                     </form>
 
+                    <table class="table table-hover">
 
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>Patient Info</th>
+                            <th>Patient Info</th>
+                            <th>Check Count</th>
+                            <th>Test Count</th>
 
+                        </tr>
 
-
-
-
-
-            <table class="table table-hover">
-
-                <tr>
-                    <th>Patient ID</th>
-                    <th>Patient Info</th>
-                    <th>Patient Info</th>
-                    <th>Check Count</th>
-                    <th>Test Count</th>
-
-                </tr>
-
-                <c:forEach items="${patients}" var="patient">
-                    <tr>
-                        <td>${patient.patientId}</td>
-                        <td>${patient.sex}</td>
-                        <td>${patient.dateOfBirth}</td>
-                        <td>${patient.checkCount}</td>
-                        <td>${patient.testCount}</td>
-                    </tr>
-                </c:forEach>
-            </table>
+                        <c:forEach items="${patients}" var="patient">
+                            <tr>
+                                <td>${patient.patientId}</td>
+                                <td>${patient.sex}</td>
+                                <td>${patient.dateOfBirth}</td>
+                                <td>${patient.checkCount}</td>
+                                <td>${patient.testCount}</td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+            </sf:form>
         </div>
     </div>
 </div>
