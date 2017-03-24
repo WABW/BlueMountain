@@ -1,4 +1,4 @@
-package bluemountain.web.doctor;
+package bluemountain.web.doctor.statistics;
 
 import bluemountain.pojo.Patient;
 import bluemountain.pojo.PatientExam;
@@ -34,15 +34,15 @@ public class PatientController {
         this.departmentRepository = departmentRepository;
     }
 
-    @RequestMapping(value = "doctor/patient", method = RequestMethod.GET)
+    @RequestMapping(value = "doctor/statistics/patient", method = RequestMethod.GET)
     public String patient(Model model) {
         model.addAttribute("patients", patientRepository.all());
         model.addAttribute("departments", departmentRepository.all());
 
-        return "doctor/patient";
+        return "doctor/statistics/patient";
     }
 
-    @RequestMapping(value = "doctor/patient", method = RequestMethod.POST)
+    @RequestMapping(value = "doctor/statistics/patient", method = RequestMethod.POST)
     public String patient(Model model, String gender, Integer min, Integer max, String department) {
         model.addAttribute("departments", departmentRepository.all());
 
@@ -75,7 +75,7 @@ public class PatientController {
         List<Patient> patients = patientRepository.all().stream().filter(patient -> patientIDs.contains(patient.getPatientId())).collect(Collectors.toList());
         model.addAttribute("patients", patients);
 
-        return "doctor/patient";
+        return "doctor/statistics/patient";
     }
 
 }

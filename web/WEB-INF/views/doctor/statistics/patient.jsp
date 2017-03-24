@@ -16,14 +16,14 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="../search/navbar.jsp" flush="true">
+<jsp:include page="../../search/navbar.jsp" flush="true">
     <jsp:param name="pages" value="checklist"/>
 </jsp:include>
 
 <div class="container">
     <div class="row">
         <!—左侧导航栏-->
-        <jsp:include page="../search/sidebar.jsp" flush="true">
+        <jsp:include page="../../search/sidebar.jsp" flush="true">
             <jsp:param name="pages" value="checklist"/>
         </jsp:include>
 
