@@ -1,8 +1,6 @@
 package bluemountain.web.doctor;
 
-import bluemountain.protocol.CheckItemRepository;
-import bluemountain.protocol.PatientRepository;
-import bluemountain.protocol.TestItemRepository;
+import bluemountain.protocol.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +15,17 @@ public class DoctorHomeController {
 
     PatientRepository patientRepository;
     CheckItemRepository checkItemRepository;
+    CheckListRepository checkListRepository;
     TestItemRepository testItemRepository;
+    TestListRepository testListRepository;
 
     @Autowired
-    public DoctorHomeController(PatientRepository patientRepository, CheckItemRepository checkItemRepository, TestItemRepository testItemRepository) {
+    public DoctorHomeController(PatientRepository patientRepository, CheckItemRepository checkItemRepository, CheckListRepository checkListRepository, TestItemRepository testItemRepository, TestListRepository testListRepository) {
         this.patientRepository = patientRepository;
         this.checkItemRepository = checkItemRepository;
+        this.checkListRepository = checkListRepository;
         this.testItemRepository = testItemRepository;
+        this.testListRepository = testListRepository;
     }
 
     @RequestMapping(value = "/doctor/home", method = RequestMethod.GET)
@@ -31,6 +33,14 @@ public class DoctorHomeController {
         model.addAttribute("patientQuantity", patientRepository.size());
         model.addAttribute("checkItemQuantity", checkItemRepository.size());
         model.addAttribute("testItemQuantity", testItemRepository.size());
+
+        model.addAttribute("checkQuantityOfLastWeek", checkListRepository.quantityOfLastWeek());
+        model.addAttribute("checkQuantityOfLastMonth", checkListRepository.quantityOfLastMonth());
+        model.addAttribute("checkQuantityOfLastYear", checkListRepository.qunaityOfLastYear());
+
+        model.addAttribute("testQuantityOfLastWeek", testListRepository.quantityOfLastWeek());
+        model.addAttribute("testQuantityOfLastMonth", testListRepository.quantityOfLastMonth());
+        model.addAttribute("testQuantityOfLastYear", testListRepository.quantityOfLastYear());
 
         return "doctor/home";
     }

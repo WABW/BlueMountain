@@ -14,6 +14,13 @@ import java.util.List;
 @Repository
 public class JdbcTestListRepository extends JdbcRepository implements TestListRepository {
 
+    private static String quantityOfLastWeekSQL = "SELECT count(*) FROM test_list \n" +
+            "WHERE date_sub(curdate(), INTERVAL 7 DAY) <= RESULTS_RPT_DATE_TIME";
+    private static String quantityOfLastMonthSQL = "SELECT count(*) FROM test_list \n" +
+            "WHERE date_sub(curdate(), INTERVAL 30 DAY) <= RESULTS_RPT_DATE_TIME";
+    private static String quantityOfLastYearSQL = "SELECT count(*) FROM test_list \n" +
+            "WHERE date_sub(curdate(), INTERVAL 365 DAY) <= RESULTS_RPT_DATE_TIME";
+
     @Autowired
     public JdbcTestListRepository(JdbcOperations jdbcOperations) {
         super(jdbcOperations);
@@ -23,4 +30,20 @@ public class JdbcTestListRepository extends JdbcRepository implements TestListRe
     public List<TestList> all() {
         return jdbcOperations.query("SELECT * FROM test_list", (resultSet, i) -> new TestList(resultSet));
     }
+
+    @Override
+    public int quantityOfLastWeek() {
+        return jdbcOperations.queryForObject(quantityOfLastWeekSQL, Integer.class);
+    }
+
+    @Override
+    public int quantityOfLastMonth() {
+        return jdbcOperations.queryForObject(quantityOfLastMonthSQL, Integer.class);
+    }
+
+    @Override
+    public int quantityOfLastYear() {
+        return jdbcOperations.queryForObject(quantityOfLastYearSQL, Integer.class);
+    }
+
 }

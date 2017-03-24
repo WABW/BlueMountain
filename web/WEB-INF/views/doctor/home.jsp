@@ -108,32 +108,28 @@
                                 <thead>
                                 <tr>
                                     <th>时间段</th>
-                                    <th>检查指标</th>
-                                    <th>检验指标</th>
+                                    <th>检查指标数量</th>
+                                    <th>检验指标数量</th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>最近一周</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>${checkQuantityOfLastWeek}</td>
+                                    <td>${testQuantityOfLastWeek}</td>
 
                                 </tr>
                                 <tr>
                                     <td>最近一月</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>${checkQuantityOfLastMonth}</td>
+                                    <td>${testQuantityOfLastMonth}</td>
 
                                 </tr>
                                 <tr>
                                     <td>最近一年</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-
+                                    <td>${checkQuantityOfLastYear}</td>
+                                    <td>${testQuantityOfLastYear}</td>
                                 </tr>
                                 </tbody>
                             </table>

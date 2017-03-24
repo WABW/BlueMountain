@@ -1,10 +1,7 @@
 package bluemountain.repository.test;
 
 import bluemountain.config.DBConfig;
-import bluemountain.repository.JdbcCheckItemRepository;
-import bluemountain.repository.JdbcPatientRepository;
-import bluemountain.repository.JdbcTestItemRepository;
-import bluemountain.repository.JdbcTestSubClassRepository;
+import bluemountain.repository.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +39,54 @@ public class JdbcRepositorySizeTests {
     @Test
     public void testTestItemRepositorySize() {
         int size = new JdbcTestItemRepository(template).size();
+        System.out.println(size);
+
+        Assert.notNull(size, "");
+    }
+
+    @Test
+    public void testCheckListQuantityOfLastWeek() {
+        int size = new JdbcTestListRepository(template).quantityOfLastWeek();
+        System.out.println(size);
+
+        Assert.notNull(size, "");
+    }
+
+    @Test
+    public void testCheckListQuantityOfLastMonth() {
+        int size = new JdbcTestListRepository(template).quantityOfLastMonth();
+        System.out.println(size);
+
+        Assert.notNull(size, "");
+    }
+
+    @Test
+    public void testCheckListQuantityOfLastYear() {
+        int size = new JdbcTestListRepository(template).quantityOfLastYear();
+        System.out.println(size);
+
+        Assert.notNull(size, "");
+    }
+
+    @Test
+    public void testTestListQuantityOfLastWeek() {
+        int size = new JdbcTestListRepository(template).quantityOfLastWeek();
+        System.out.println(size);
+
+        Assert.notNull(size, "");
+    }
+
+    @Test
+    public void testTestListQuantityOfLastMonth() {
+        int size = new JdbcTestListRepository(template).quantityOfLastMonth();
+        System.out.println(size);
+
+        Assert.notNull(size, "");
+    }
+
+    @Test
+    public void testTestListQuantityOfLastYear() {
+        int size = new JdbcTestListRepository(template).quantityOfLastYear();
         System.out.println(size);
 
         Assert.notNull(size, "");
