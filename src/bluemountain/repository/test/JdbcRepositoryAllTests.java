@@ -16,14 +16,15 @@ import java.util.List;
 /**
  * Created by MainasuK on 2017-3-9.
  */
+
+// MARK: test .all()
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { DBConfig.class })
-public class JdbcRepositoryTests {
+public class JdbcRepositoryAllTests {
 
     @Autowired
     JdbcTemplate template;
 
-    // MARK: test .all()
     @Test
     public void testChargeTypeRepositoryAll() {
         List<ChargeType> charges = new JdbcChargeTypeRepository(template).all();

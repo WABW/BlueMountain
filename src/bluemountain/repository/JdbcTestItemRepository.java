@@ -23,4 +23,10 @@ public class JdbcTestItemRepository extends JdbcRepository implements TestItemRe
     public List<TestItem> all() {
         return jdbcOperations.query("SELECT ITEM_CODE, ITEM_NAME FROM test_items", (resultSet, i) -> new TestItem(resultSet));
     }
+
+    @Override
+    public int size() {
+        return jdbcOperations.queryForObject("SELECT COUNT(*) SIZE FROM test_items", Integer.class);
+    }
+
 }

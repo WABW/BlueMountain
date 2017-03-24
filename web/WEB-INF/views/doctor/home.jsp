@@ -77,19 +77,19 @@
                             <ul class="nav nav-pills nav-stacked" role="tablist">
                                 <li role="presentation">
                                     <a href="#" class="alert alert-info">
-                                        <span class="badge pull-right">42</span>
+                                        <span class="badge pull-right">${patientQuantity}</span>
                                         患者数量
                                     </a>
                                 </li>
                                 <li role="presentation">
                                     <a href="#" class="alert alert-info">
-                                        <span class="badge pull-right">20</span>
+                                        <span class="badge pull-right">${checkItemQuantity}</span>
                                         检查项目数量
                                     </a>
                                 </li>
                                 <li role="presentation">
                                     <a href="#" class="alert alert-info">
-                                        <span class="badge pull-right">10</span>
+                                        <span class="badge pull-right">${testItemQuantity}</span>
                                         检验项目数量
                                     </a>
                                 </li>

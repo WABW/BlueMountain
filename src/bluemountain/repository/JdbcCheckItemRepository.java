@@ -24,4 +24,10 @@ public class JdbcCheckItemRepository extends JdbcRepository implements CheckItem
     public List<CheckItem> all() {
         return jdbcOperations.query("SELECT PERFORMED_BY, EXAM_CLASS FROM check_items", (resultSet, i) -> new CheckItem(resultSet));
     }
+
+    @Override
+    public int size() {
+        return jdbcOperations.queryForObject("SELECT COUNT(*) SIZE FROM check_items", Integer.class);
+    }
+
 }
