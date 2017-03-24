@@ -46,7 +46,7 @@
         <div align="center">
           <a class="btn btn-default" href="/">提交</a>
             <br />   <br />
-          <a href="home.jsp">返回到主页</a>
+          <a href="login.jsp">返回到主页</a>
             
           
         </div>

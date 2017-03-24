@@ -5,7 +5,6 @@ import bluemountain.protocol.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -214,7 +213,7 @@ public class SearchController {
     public String index() {
         // m odel.addAttribute("checkItem", checkItemRepository.all());
 
-        return "search/index";
+        return "doctor/doctorhome";
     }
 
 

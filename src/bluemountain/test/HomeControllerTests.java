@@ -1,6 +1,6 @@
 package bluemountain.test;
 
-import bluemountain.web.HomeController;
+import bluemountain.web.LoginController;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -16,7 +16,7 @@ public class HomeControllerTests {
 
     @Test
     public void testHomePage() throws Exception {
-        HomeController controller = new HomeController();
+        LoginController controller = new LoginController();
         MockMvc mvc = standaloneSetup(controller).build();
 
         mvc.perform(get("/")).andExpect(view().name("other"));

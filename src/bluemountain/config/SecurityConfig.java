@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
         http.addFilterBefore(characterEncodingFilter, CsrfFilter.class)
                 .formLogin()
-                    .loginPage("/")
+                    .loginPage("/login")
                     .defaultSuccessUrl("/")
                 .and()
                     .logout()
@@ -50,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
                     .authorizeRequests()
                     .antMatchers("/root").hasRole("ROOT")
+                    .antMatchers("/doctor/").hasRole("DOCTOR")
                     .antMatchers(HttpMethod.POST, "/").authenticated()
                     .anyRequest().permitAll();
     }

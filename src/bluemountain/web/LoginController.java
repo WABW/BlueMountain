@@ -13,8 +13,8 @@ import java.security.Principal;
  * Created by MainasuK on 2017-3-5.
  */
 @Controller
-@RequestMapping({"/"})
-public class HomeController {
+@RequestMapping({"/login"})
+public class LoginController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model, Principal principal, Authentication authentication) {
@@ -30,7 +30,7 @@ public class HomeController {
             model.addAttribute("username", principal.getName());
         }
 
-        return "home";
+        return "login";
     }
 
 }
