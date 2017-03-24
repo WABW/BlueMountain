@@ -54,31 +54,6 @@ public class SearchController {
         return "search/charges" ;
     }
 
-//    @RequestMapping(value = "/checkitems", method = RequestMethod.GET)
-//    public String checkitems(Model model) {
-//        model.addAttribute("checkItem", checkItemRepository.all());
-//
-//        return "search/checkitems";
-//    }
-//
-//    @RequestMapping(value = "/checkitems", method = RequestMethod.POST)
-//    public String checkitems(String keyword) {
-//        return "redirect:/search/checkitems/" + keyword.trim(); // Be careful with the '/'
-//    }
-//
-//    @RequestMapping(value = "/checkitems/{keyword}", method = RequestMethod.GET)
-//    public String showCheckitemsFor(@PathVariable String keyword, Model model) {
-//        model.addAttribute("checkItem",
-//                checkItemRepository.all()
-//                        .parallelStream()
-//                        .filter(item ->
-//                                item.getExamclass().contains(keyword) || ("" + item.getPerformedby()).contains(keyword)
-//                        ).collect(Collectors.toList())
-//        );
-//
-//        return "search/checkitems" ;
-//    }
-
     @RequestMapping(value = "/checklist", method = RequestMethod.GET)
     public String checklist(Model model) {
         model.addAttribute("checkList", checkListRepository.all());
@@ -86,11 +61,12 @@ public class SearchController {
         return "search/checklist" ;
     }
 
-    @RequestMapping(value = "/testitems", method = RequestMethod.GET)
-    public String testitems(Model model) {
+    // For search test itmm
+    @RequestMapping(value = "/searchtestinfo", method = RequestMethod.GET)
+    public String searchtestinfo(Model model) {
         model.addAttribute("testItem", testItemRepository.all());
 
-        return "search/testitems" ;
+        return "search/searchtestinfo" ;
     }
 
     @RequestMapping(value = "/searchpatientinfo", method = RequestMethod.GET)
@@ -184,24 +160,13 @@ public class SearchController {
         return "doctor/check";
     }
 
-    @RequestMapping(value = "/searchtestinfo", method = RequestMethod.GET)
-    public String searchtestinfo(Model model) {
-        model.addAttribute("testItem", testItemRepository.all());
 
-        return "search/searchtestinfo" ;
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public String search() {
-
-        return "redirect: /search/checkitems" ;
-    }
 
     @RequestMapping(value = "/navbar")
     public String navbar() {
         // m odel.addAttribute("checkItem", checkItemRepository.all());
 
-        return "search/navbar";
+        return "component/navbar";
     }
     @RequestMapping(value = "/sidebar")
     public String sidebar() {

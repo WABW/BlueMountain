@@ -15,7 +15,7 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="navbar.jsp" flush="true">
+<jsp:include page="../component/navbar.jsp" flush="true">
     <jsp:param name="pages" value="checklist"/>
 </jsp:include>
 <!—自适应布局-->

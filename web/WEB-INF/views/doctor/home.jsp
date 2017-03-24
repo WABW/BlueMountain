@@ -22,7 +22,7 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="../search/navbar.jsp" flush="true">
+<jsp:include page="../component/navbar.jsp" flush="true">
     <jsp:param name="pages" value="checklist"/>
 </jsp:include>
 <!—自适应布局-->
@@ -75,19 +75,19 @@
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-stacked" role="tablist">
                                 <li role="presentation">
-                                    <a href="#" class="alert alert-info">
+                                    <a href="/doctor/statistics/patient" class="alert alert-info">
                                         <span class="badge pull-right">${patientQuantity}</span>
                                         患者数量
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a href="#" class="alert alert-info">
+                                    <a href="/doctor/statistics/check" class="alert alert-info">
                                         <span class="badge pull-right">${checkItemQuantity}</span>
                                         检查项目数量
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a href="#" class="alert alert-info">
+                                    <a href="/doctor/statistics/test" class="alert alert-info">
                                         <span class="badge pull-right">${testItemQuantity}</span>
                                         检验项目数量
                                     </a>
@@ -106,37 +106,34 @@
                         <div class="panel-body">
                             <table class="table table-striped">
                                 <thead>
-                                <tr>
-                                    <th>时间段</th>
-                                    <th>检查指标数量</th>
-                                    <th>检验指标数量</th>
-
-                                </tr>
+                                    <tr>
+                                        <th>时间段</th>
+                                        <th>检查指标数量</th>
+                                        <th>检验指标数量</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>最近一周</td>
-                                    <td>${checkQuantityOfLastWeek}</td>
-                                    <td>${testQuantityOfLastWeek}</td>
+                                    <tr>
+                                        <td>最近一周</td>
+                                        <td>${checkQuantityOfLastWeek}</td>
+                                        <td>${testQuantityOfLastWeek}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>最近一月</td>
+                                        <td>${checkQuantityOfLastMonth}</td>
+                                        <td>${testQuantityOfLastMonth}</td>
 
-                                </tr>
-                                <tr>
-                                    <td>最近一月</td>
-                                    <td>${checkQuantityOfLastMonth}</td>
-                                    <td>${testQuantityOfLastMonth}</td>
-
-                                </tr>
-                                <tr>
-                                    <td>最近一年</td>
-                                    <td>${checkQuantityOfLastYear}</td>
-                                    <td>${testQuantityOfLastYear}</td>
-                                </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>最近一年</td>
+                                        <td>${checkQuantityOfLastYear}</td>
+                                        <td>${testQuantityOfLastYear}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
