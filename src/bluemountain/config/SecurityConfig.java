@@ -49,8 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .exceptionHandling().accessDeniedPage("/403")
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/root").hasRole("ROOT")
-                    .antMatchers("/doctor").hasRole("DOCTOR")
+                    .antMatchers("/root/**").hasRole("ROOT")
+                    .antMatchers("/doctor/**").hasRole("DOCTOR")
                     .antMatchers(HttpMethod.POST, "/").authenticated()
                     .anyRequest().permitAll();
     }
