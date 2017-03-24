@@ -29,23 +29,23 @@
         </jsp:include>
         <!—右侧管理控制台-->
 
-        <div class="main">
+
             <div class="panel-heading">
                 <%--Search bar--%>
-                <sf:form action="/search/checkitems" method="POST">
-                    <div class="input-group">
-                            <input name="keyword" type="text" class="form-control" placeholder="Search for...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">Search</button>
-                            </span>
-                    </div>
-                </sf:form>
+                <%--<sf:form action="/search/checkitems" method="POST">--%>
+                    <%--<div class="input-group">--%>
+                    <%--<input name="keyword" type="text" class="form-control" placeholder="Search for...">--%>
+                    <%--<span class="input-group-btn">--%>
+                                <%--<button class="btn btn-default" type="submit">Search</button>--%>
+                            <%--</span>--%>
+                <%--</div>--%>
+                <%--</sf:form>--%>
             </div>
             <%--Table--%>
-            <table class=" table table-striped table-bordered table-hover">
+            <table class="table table-hover">
                 <tr>
-                    <th>Check Item</th>
-                    <th>Check Item2</th>
+                    <th>检查项目编号</th>
+                    <th>检查项目名称</th>
                 </tr>
 
                 <c:forEach items="${checkItems}" var="checkItem">
@@ -57,7 +57,7 @@
             </table>
         </div>
 
-    </div>
+
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

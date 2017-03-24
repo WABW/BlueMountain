@@ -19,7 +19,7 @@
     <jsp:param name="pages" value="checklist"/>
 </jsp:include>
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <!—左侧导航栏-->
         <jsp:include page="sidebar.jsp" flush="true">

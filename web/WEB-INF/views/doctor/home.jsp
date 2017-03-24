@@ -34,14 +34,13 @@
         </jsp:include>
         <!—右侧管理控制台-->
 
-        <div class=" main">
-            <%--<h1 class="page-header">管理控制台</h1>--%>
+        <div class="main">
+            
             <p>
                 <!—一组按钮控件-->
-                <button type="button" class="btn btn-lg btn-success">查询</button>
-                <button type="button" class="btn btn-lg btn-primary">数据导出</button>
-                <button type="button" class="btn btn-lg btn-info">CT报告</button>
-                <button type="button" class="btn btn-lg btn-warning">知识库</button>
+                <button type="button" class="btn btn-lg btn-success">病人列表</button>
+                <button type="button" class="btn btn-lg btn-primary">1</button>
+                <button type="button" class="btn btn-lg btn-info">2</button>
 
             </p>
             <div class="row">
@@ -55,13 +54,13 @@
                         <!—panel面板的内容，下同-->
                         <div class="panel-body">
                             <div class="alert alert-danger" role="alert">
-                                <strong>病人：</strong>王二驴<button type="button" class="btn  btn-success pull-right">详情</button>
+                                <strong>病人：</strong>王二<button type="button" class="btn  btn-success pull-right">详情</button>
                             </div>
                             <div class="alert alert-success" role="alert">
-                                <strong>病人：</strong>王二狗<button type="button" class="btn  btn-success pull-right">详情</button>
+                                <strong>病人：</strong>王五<button type="button" class="btn  btn-success pull-right">详情</button>
                             </div>
                             <div class="alert alert-warning" role="alert">
-                                <strong>病人：</strong>王狗蛋<button type="button" class="btn  btn-success pull-right">详情</button>
+                                <strong>病人：</strong>王六<button type="button" class="btn  btn-success pull-right">详情</button>
                             </div>
                         </div>
                     </div>
@@ -91,6 +90,10 @@
                                         <span class="badge pull-right">${testItemQuantity}</span>
                                         检验项目数量
                                     </a>
+                                </li>
+                                <li>
+                                <li role="presentation">
+                                    <p>&nbsp</p>
                                 </li>
                             </ul>
                         </div>
@@ -140,7 +143,7 @@
 </div>
 
 
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="/resources/jQuery/jquery-3.1.1.min.js"></script>
+<script src="/resources/Bootstrap/js/bootstrap.min.js"></script>
 
 </body>

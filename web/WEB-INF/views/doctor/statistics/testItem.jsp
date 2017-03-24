@@ -31,8 +31,8 @@
 
             <table class="table table-hover">
                 <tr>
-                    <th>Test Item</th>
-                    <th>Test Item2</th>
+                    <th>检验项目编号</th>
+                    <th>检验项目名称</th>
                 </tr>
 
                 <c:forEach items="${testItems}" var="testItem">
