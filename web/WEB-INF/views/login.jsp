@@ -42,7 +42,7 @@
     </div>
     <div class='row'>
         <div class='col-lg-12'>
-           <sf:form action="/" method="post">
+           <sf:form method="post">
                 <fieldset class='text-center'>
                     <legend><h5>Login to your account</h5></legend>
                     <div class='form-group'>

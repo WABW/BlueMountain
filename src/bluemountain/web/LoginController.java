@@ -13,16 +13,24 @@ import java.security.Principal;
  * Created by MainasuK on 2017-3-5.
  */
 @Controller
-@RequestMapping({"/login"})
 public class LoginController {
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Model model, Principal principal, Authentication authentication) {
-
-
-        if (authentication != null && authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_DOCTOR"))) {
-            return "redirect: /search/searchcheckinfo";
+        if (null == principal) {
+            return "redirect: /login";
         }
+
+        // if doctor login
+        if (authentication != null && authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_DOCTOR"))) {
+            return "redirect: /doctor/home";
+        } else {
+            return "redirect: /login";
+        }
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model, Principal principal, Authentication authentication) {
 
         if (null == principal || null == principal.getName()) {
             model.addAttribute("username", "");

@@ -213,7 +213,7 @@ public class SearchController {
     public String index() {
         // m odel.addAttribute("checkItem", checkItemRepository.all());
 
-        return "doctor/doctorhome";
+        return "doctor/home";
     }
 
 
