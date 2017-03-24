@@ -59,20 +59,20 @@
     }
 
 %>
-<div class="col-sm-3 col-md-2 sidebar">
-    <ul class="nav nav-sidebar">
-        <li class="<%= index%>"><a href="#">首页</a></li>
-    </ul>
-    <ul class="nav nav-sidebar">
-        <li class="<%= function1%>"><a href="#">病例查询</a></li>
-        <li class="<%= function2%>"><a href="#">我的病例</a></li>
-        <li ><a href="#"></a></li>
-    </ul>
-    <ul class="nav nav-sidebar">
-        <li class="<%= function3%>"><a href="#">设置</a></li>
-        <li class="<%= help%>"><a href="#">帮助</a></li>
-    </ul>
-</div>
+<%--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">--%>
+    <%--<ul class="nav nav-sidebar">--%>
+        <%--<li class="<%= index%>"><a href="#">首页</a></li>--%>
+    <%--</ul>--%>
+    <%--<ul class="nav nav-sidebar">--%>
+        <%--<li class="<%= function1%>"><a href="#">病例查询</a></li>--%>
+        <%--<li class="<%= function2%>"><a href="#">我的病例</a></li>--%>
+        <%--<li ><a href="#"></a></li>--%>
+    <%--</ul>--%>
+    <%--<ul class="nav nav-sidebar">--%>
+        <%--<li class="<%= function3%>"><a href="#">设置</a></li>--%>
+        <%--<li class="<%= help%>"><a href="#">帮助</a></li>--%>
+    <%--</ul>--%>
+<%--</div>--%>
 
 
 <div class="hr_40"></div>

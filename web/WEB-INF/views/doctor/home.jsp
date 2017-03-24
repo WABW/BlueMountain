@@ -34,9 +34,8 @@
         </jsp:include>
         <!—右侧管理控制台-->
 
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">管理控制台</h1>
-
+        <div class=" main">
+            <%--<h1 class="page-header">管理控制台</h1>--%>
             <p>
                 <!—一组按钮控件-->
                 <button type="button" class="btn btn-lg btn-success">查询</button>
@@ -108,38 +107,36 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>编号</th>
-                                    <th>姓名</th>
-                                    <th>已检查数</th>
-                                    <th>动态</th>
-                                    <th>缴费状态</th>
+                                    <th>时间段</th>
+                                    <th>检查指标</th>
+                                    <th>检验指标</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>1</td>
-                                    <td>王二狗</td>
-                                    <td>2</td>
-                                    <td>门诊完毕</td>
-                                    <td>未缴费</td>
+                                    <td>最近一周</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
                                 </tr>
                                 <tr>
-                                    <td>2</td>
-                                    <td>王狗蛋</td>
-                                    <td>5</td>
-                                    <td>已检查完毕</td>
-                                    <td>已缴费</td>
+                                    <td>最近一月</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
                                 </tr>
                                 <tr>
-                                    <td>3</td>
-                                    <td>王傻驴</td>
-                                    <td>5</td>
-                                    <td>CT检查完毕</td>
-                                    <td>已缴费</td>
+                                    <td>最近一年</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
                                 </tr>
                                 </tbody>
                             </table>
-                            <p><a class="btn btn-primary" href="#" role="button">查看详细&raquo;</a></p>
                         </div>
                     </div>
                 </div>

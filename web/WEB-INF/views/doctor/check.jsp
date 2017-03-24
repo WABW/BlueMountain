@@ -21,7 +21,7 @@
     <jsp:param name="pages" value="checklist"/>
 </jsp:include>
 <!—自适应布局-->
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <!—左侧导航栏-->
         <jsp:include page="../search/sidebar.jsp" flush="true">
@@ -29,7 +29,7 @@
         </jsp:include>
         <!—右侧管理控制台-->
 
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="main">
             <div class="panel panel-default">
                 <sf:form  method="POST">
 
