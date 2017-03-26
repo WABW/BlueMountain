@@ -38,7 +38,7 @@
             
             <p>
                 <!—一组按钮控件-->
-                <button type="button" class="btn btn-lg btn-success">病人列表</button>
+                <a href="/search/searchcheckinfo"><button type="button"  class="btn btn-lg btn-success">病患查询</button></a>
                 <button type="button" class="btn btn-lg btn-primary">1</button>
                 <button type="button" class="btn btn-lg btn-info">2</button>
 

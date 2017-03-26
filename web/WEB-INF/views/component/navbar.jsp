@@ -75,7 +75,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div>
                 <ul class="nav navbar-nav">
-                    <li class="<%=index%>"><a href="#">首页</a></li>
+                    <li class="<%=index%>"><a href="/doctor/home">首页</a></li>
                     <li class="dropdown <%=function%>">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">功能<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
