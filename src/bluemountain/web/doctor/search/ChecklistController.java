@@ -31,14 +31,15 @@ public class ChecklistController {
     }
 
     @RequestMapping(value = "/doctor/search/checklist", method = RequestMethod.GET)
-    public String searchcheckinfo(Model model) {
+    public String checklist(Model model) {
         model.addAttribute("checkItem", checkItemRepository.all());
+        model.addAttribute("patientExams", patientExamRepository.all());
 
         return "doctor/search/checklist";
     }
 
     @RequestMapping(value = "/doctor/search/checklist", method = RequestMethod.POST)
-    public String searchcheckinfo(Model model, HttpServletRequest request) {
+    public String checklist(Model model, HttpServletRequest request) {
         model.addAttribute("checkItem", checkItemRepository.all());
 
         String and = "并含";
