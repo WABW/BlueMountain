@@ -50,7 +50,7 @@ public class ChecklistController {
 
         String department = request.getParameter("department");
         if (!department.contains("不限")) {
-            patientExams = patientExams.stream().filter(exam -> exam.getCheckList().getCheckItem().getExamclass().contentEquals(department)).collect(Collectors.toList());
+            patientExams = patientExams.stream().filter(exam -> exam.getChecklist().getCheckItem().getExamclass().contentEquals(department)).collect(Collectors.toList());
         }
 
         Enumeration<String> names = request.getParameterNames();
@@ -62,11 +62,11 @@ public class ChecklistController {
                 String inputValue = request.getParameter(names.nextElement());
 
                 if (value.equals(and)) {
-                    patientExams = patientExams.stream().filter(exam -> exam.getCheckList().getPhysicSign().contains(inputValue)).collect(Collectors.toList());
+                    patientExams = patientExams.stream().filter(exam -> exam.getChecklist().getPhysicSign().contains(inputValue)).collect(Collectors.toList());
                 } else if (value.equals(or)) {
-                    patientExams = patientExams.stream().filter(exam -> !exam.getCheckList().getPhysicSign().contains(inputValue)).collect(Collectors.toList());
+                    patientExams = patientExams.stream().filter(exam -> !exam.getChecklist().getPhysicSign().contains(inputValue)).collect(Collectors.toList());
                 } else {
-                    List<PatientExam> result = patientExams.stream().filter(exam -> exam.getCheckList().getPhysicSign().contains(inputValue)).collect(Collectors.toList());
+                    List<PatientExam> result = patientExams.stream().filter(exam -> exam.getChecklist().getPhysicSign().contains(inputValue)).collect(Collectors.toList());
                     result.removeAll(patientExams);
                     patientExams.addAll(result);
                 }

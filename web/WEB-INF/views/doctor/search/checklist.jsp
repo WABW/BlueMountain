@@ -81,19 +81,15 @@
                     <th>Check List14</th>
                     <th>Check List15</th>
                     <th>Check List16</th>
-                    <th>Check List17</th>
-                    <th>Check List18</th>
 
 
                 </tr>
 
                 <c:forEach items="${patientExams}" var="patientExam">
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>${ patientExam.checklist}</td>
-                        <td>${ patientExam.checklist.patientId}</td>
+                        <td>${patientExam.patient.patientId}</td>
+                        <td>${patientExam.patient.sex}</td>
+                        <td>${patientExam.patient.dateOfBirth}</td>
                         <td>${ patientExam.checklist.visitId}</td>
                         <td>${ patientExam.checklist.examsubClass}</td>
                         <td>${ patientExam.checklist.clinicSymptom}</td>

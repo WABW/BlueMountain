@@ -1,6 +1,6 @@
 package bluemountain.repository;
 
-import bluemountain.pojo.CheckList;
+import bluemountain.pojo.Checklist;
 import bluemountain.protocol.CheckListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
@@ -27,8 +27,8 @@ public class JdbcCheckListRepository extends JdbcRepository implements CheckList
     }
 
     @Override
-    public List<CheckList> all() {
-        return jdbcOperations.query("SELECT * FROM check_list_view", (resultSet, i) -> new CheckList(resultSet));
+    public List<Checklist> all() {
+        return jdbcOperations.query("SELECT * FROM check_list_view", (resultSet, i) -> new Checklist(resultSet));
     }
 
     @Override

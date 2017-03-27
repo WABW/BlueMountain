@@ -52,26 +52,26 @@
 
                 </tr>
 
-                <c:forEach items="${checkList}" var="patientExam.checklist">
+                <c:forEach items="${checklist}" var="patientExam">
                     <tr>
-                        <td>${ patientExam.checklist .examNo}</td>
-                        <td>${ patientExam.checklist .patientId}</td>
-                        <td>${ patientExam.checklist .visitId}</td>
-                        <td>${ patientExam.checklist .examsubClass}</td>
-                        <td>${ patientExam.checklist .clinicSymptom}</td>
-                        <td>${ patientExam.checklist .physicSign}</td>
-                        <td>${ patientExam.checklist .relevantDiag}</td>
-                        <td>${ patientExam.checklist .clinicDiag}</td>
-                        <td>${ patientExam.checklist .performedby}</td>
-                        <td>${ patientExam.checklist .patientsource}</td>
-                        <td>${ patientExam.checklist .requestDateTime}</td>
-                        <td>${ patientExam.checklist .requestDept}</td>
-                        <td>${ patientExam.checklist .scheduledDateTime}</td>
-                        <td>${ patientExam.checklist .notice}</td>
-                        <td>${ patientExam.checklist .resultStatus}</td>
-                        <td>${ patientExam.checklist .chargeIndicator}</td>
-                        <td>${ patientExam.checklist .chargeType}</td>
-                        <td>${ patientExam.checklist .realReportDateTime}</td>
+                        <td>${ patientExam.checklist.examNo}</td>
+                        <td>${ patientExam.checklist.patientId}</td>
+                        <td>${ patientExam.checklist.visitId}</td>
+                        <td>${ patientExam.checklist.examsubClass}</td>
+                        <td>${ patientExam.checklist.clinicSymptom}</td>
+                        <td>${ patientExam.checklist.physicSign}</td>
+                        <td>${ patientExam.checklist.relevantDiag}</td>
+                        <td>${ patientExam.checklist.clinicDiag}</td>
+                        <td>${ patientExam.checklist.performedby}</td>
+                        <td>${ patientExam.checklist.patientsource}</td>
+                        <td>${ patientExam.checklist.requestDateTime}</td>
+                        <td>${ patientExam.checklist.requestDept}</td>
+                        <td>${ patientExam.checklist.scheduledDateTime}</td>
+                        <td>${ patientExam.checklist.notice}</td>
+                        <td>${ patientExam.checklist.resultStatus}</td>
+                        <td>${ patientExam.checklist.chargeIndicator}</td>
+                        <td>${ patientExam.checklist.chargeType}</td>
+                        <td>${ patientExam.checklist.realReportDateTime}</td>
 
                     </tr>
                 </c:forEach>

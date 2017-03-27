@@ -45,8 +45,8 @@ public class JdbcRepositoryAllTests {
     @Test
     public void testCheckListRepositoryAll() {
         Assert.notNull(new JdbcCheckListRepository(template).all(), "");
-        List<CheckList> checkLists = new JdbcCheckListRepository(template).all();
-        checkLists.stream().forEach(checkList -> System.out.println(checkList.getExamNo()));
+        List<Checklist> checklists = new JdbcCheckListRepository(template).all();
+        checklists.stream().forEach(checklist -> System.out.println(checklist.getExamNo()));
     }
 
     @Test

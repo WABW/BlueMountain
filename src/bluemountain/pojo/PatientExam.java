@@ -8,18 +8,18 @@ import java.sql.SQLException;
  */
 public class PatientExam {
     Patient patient;
-    CheckList checkList;
+    Checklist checklist;
 
     public PatientExam() {
     }
 
-    public PatientExam(Patient patient, CheckList checkList) {
+    public PatientExam(Patient patient, Checklist checklist) {
         this.patient = patient;
-        this.checkList = checkList;
+        this.checklist = checklist;
     }
 
     public PatientExam(ResultSet resultSet) throws SQLException {
-        this(new Patient(resultSet), new CheckList(resultSet));
+        this(new Patient(resultSet), new Checklist(resultSet));
     }
 
     public Patient getPatient() {
@@ -30,11 +30,11 @@ public class PatientExam {
         this.patient = patient;
     }
 
-    public CheckList getCheckList() {
-        return checkList;
+    public Checklist getChecklist() {
+        return checklist;
     }
 
-    public void setCheckList(CheckList checkList) {
-        this.checkList = checkList;
+    public void setChecklist(Checklist checklist) {
+        this.checklist = checklist;
     }
 }

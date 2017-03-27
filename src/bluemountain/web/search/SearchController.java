@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -102,7 +101,7 @@ public class SearchController {
         }
 
         if (!"".equals(selectLevel)) {
-            patientExams = patientExams.stream().filter(exam -> exam.getCheckList().getDepartmentName().equals(selectLevel)).collect(Collectors.toList());
+            patientExams = patientExams.stream().filter(exam -> exam.getChecklist().getDepartmentName().equals(selectLevel)).collect(Collectors.toList());
         }
 
 

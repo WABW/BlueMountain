@@ -68,7 +68,7 @@ public class PatientController {
         }
 
         if (!"".equals(department)) {
-            patientExams = patientExams.stream().filter(exam -> exam.getCheckList().getDepartmentName().equals(department)).collect(Collectors.toList());
+            patientExams = patientExams.stream().filter(exam -> exam.getChecklist().getDepartmentName().equals(department)).collect(Collectors.toList());
         }
 
         Set<Integer> patientIDs = patientExams.stream().map(exam -> exam.getPatient().getPatientId()).collect(Collectors.toSet());
