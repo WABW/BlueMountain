@@ -111,57 +111,6 @@ public class SearchController {
         return "search/searchpatientinfo" ;
     }
 
-    @RequestMapping(value = "/searchcheckinfo", method = RequestMethod.GET)
-    public String searchcheckinfo(Model model) {
-        model.addAttribute("checkItem", checkItemRepository.all());
-
-        return "doctor/search/checklist";
-    }
-
-    @RequestMapping(value = "/searchcheckinfo", method = RequestMethod.POST)
-    public String searchcheckinfo(Model model, HttpServletRequest request) {
-        model.addAttribute("checkItem", checkItemRepository.all());
-
-        String and = "并含";
-        String or  = "并或";
-        String not = "不含";
-
-        List<PatientExam> patientExams = patientExamRepository.all().stream().collect(Collectors.toList());
-
-        String department = request.getParameter("department");
-        if (!department.contains("不限")) {
-            patientExams = patientExams.stream().filter(exam -> exam.getCheckList().getCheckItem().getExamclass().contentEquals(department)).collect(Collectors.toList());
-        }
-
-        Enumeration<String> names = request.getParameterNames();
-        while (names.hasMoreElements()) {
-            String key = names.nextElement();
-            String value = request.getParameter(key);
-
-            if (key.startsWith("item") && names.hasMoreElements()) {
-                String inputValue = request.getParameter(names.nextElement());
-
-                if (value.equals(and)) {
-                    patientExams = patientExams.stream().filter(exam -> exam.getCheckList().getPhysicSign().contains(inputValue)).collect(Collectors.toList());
-                } else if (value.equals(or)) {
-                    patientExams = patientExams.stream().filter(exam -> !exam.getCheckList().getPhysicSign().contains(inputValue)).collect(Collectors.toList());
-                } else {
-                    List<PatientExam> result = patientExams.stream().filter(exam -> exam.getCheckList().getPhysicSign().contains(inputValue)).collect(Collectors.toList());
-                    result.removeAll(patientExams);
-                    patientExams.addAll(result);
-                }
-            }
-
-            System.out.println(key + "::" + value);
-        }
-
-        patientExams.stream().forEach(exam -> System.out.println(exam.getCheckList().getPhysicSign()));
-
-        return "doctor/search/checklist";
-    }
-
-
-
     @RequestMapping(value = "/navbar")
     public String navbar() {
         // m odel.addAttribute("checkItem", checkItemRepository.all());
