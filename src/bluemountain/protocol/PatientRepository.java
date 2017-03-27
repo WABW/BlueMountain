@@ -10,4 +10,5 @@ public interface PatientRepository extends ListRepositoryProtocol<Patient> {
     int size();
     int quantityOfMale();
     int quantityOfFemale();
+    int quantityInRange(int min, int max);
 }

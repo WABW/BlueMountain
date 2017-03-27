@@ -20,6 +20,9 @@ public class JdbcPatientRepository extends JdbcRepository implements PatientRepo
     private static String patientSizeSQL = "SELECT COUNT(*) SIZE FROM patient_info";
     private static String patientSizeOfMaleSQL = "SELECT COUNT(*) FROM patient_info pi where pi.SEX = '男'";
     private static String patientSizeOfFemaleSQL = "SELECT COUNT(*) FROM patient_info pi where pi.SEX = '女'";
+    private static String patientSizeInRangeSQL = "SELECT COUNT(*) FROM\n" +
+            "(SELECT TIMESTAMPDIFF(YEAR, DATE_OF_BIRTH, CURDATE()) AS age FROM patient_info) age_table\n" +
+            "WHERE age_table.age >= ? AND age_table.age < ?";
 
     @Autowired
     public JdbcPatientRepository(JdbcOperations jdbcOperations) {
@@ -45,5 +48,11 @@ public class JdbcPatientRepository extends JdbcRepository implements PatientRepo
     @Override
     public int quantityOfFemale() {
         return jdbcOperations.queryForObject(patientSizeOfFemaleSQL, Integer.class);
+    }
+
+    @Override
+    public int quantityInRange(int min, int max) {
+        // patient's age in [min, max)
+        return jdbcOperations.queryForObject(patientSizeInRangeSQL, new Object[] {min, max}, Integer.class);
     }
 }

@@ -108,4 +108,12 @@ public class JdbcRepositorySizeTests {
         Assert.notNull(size, "");
     }
 
+    @Test
+    public void testPatientQuantityInRange() {
+        int size = new JdbcPatientRepository(template).quantityInRange(30, 50);
+        System.out.println(size);
+
+        Assert.notNull(size, "");
+    }
+
 }

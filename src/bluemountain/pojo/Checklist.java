@@ -7,7 +7,7 @@ import java.sql.SQLException;
 /**
  * Created by MainasuK on 2017-3-10.
  */
-public class CheckList {
+public class Checklist {
 
     private int examNo;
     private int patientId;
@@ -198,7 +198,7 @@ public class CheckList {
         this.clinicDiag = clinicDiag;
     }
 
-    public CheckList() {
+    public Checklist() {
     }
 
     public String getDepartmentName() {
