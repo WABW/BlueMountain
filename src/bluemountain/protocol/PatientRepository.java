@@ -8,4 +8,6 @@ import bluemountain.pojo.Patient;
 public interface PatientRepository extends ListRepositoryProtocol<Patient> {
     // Patient counts of database
     int size();
+    int quantityOfMale();
+    int quantityOfFemale();
 }

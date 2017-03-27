@@ -92,4 +92,20 @@ public class JdbcRepositorySizeTests {
         Assert.notNull(size, "");
     }
 
+    @Test
+    public void testPatientQuantityOfMale() {
+        int size = new JdbcPatientRepository(template).quantityOfMale();
+        System.out.println(size);
+
+        Assert.notNull(size, "");
+    }
+
+    @Test
+    public void testPatientQuantityOfFemale() {
+        int size = new JdbcPatientRepository(template).quantityOfFemale();
+        System.out.println(size);
+
+        Assert.notNull(size, "");
+    }
+
 }

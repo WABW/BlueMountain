@@ -18,6 +18,9 @@ public class JdbcPatientRepository extends JdbcRepository implements PatientRepo
             "(SELECT COUNT(*) FROM test_list tl WHERE pi.PATIENT_ID = tl.PATIENT_ID) AS TEST_COUNT\n" +
             "FROM patient_info pi";
     private static String patientSizeSQL = "SELECT COUNT(*) SIZE FROM patient_info";
+    private static String patientSizeOfMaleSQL = "SELECT COUNT(*) FROM patient_info pi where pi.SEX = '男'";
+    private static String patientSizeOfFemaleSQL = "SELECT COUNT(*) FROM patient_info pi where pi.SEX = '女'";
+
     @Autowired
     public JdbcPatientRepository(JdbcOperations jdbcOperations) {
         super(jdbcOperations);
@@ -32,5 +35,15 @@ public class JdbcPatientRepository extends JdbcRepository implements PatientRepo
     @Override
     public int size() {
         return jdbcOperations.queryForObject(patientSizeSQL, Integer.class);
+    }
+
+    @Override
+    public int quantityOfMale() {
+        return jdbcOperations.queryForObject(patientSizeOfMaleSQL, Integer.class);
+    }
+
+    @Override
+    public int quantityOfFemale() {
+        return jdbcOperations.queryForObject(patientSizeOfFemaleSQL, Integer.class);
     }
 }
