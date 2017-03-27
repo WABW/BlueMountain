@@ -115,7 +115,7 @@ public class SearchController {
     public String searchcheckinfo(Model model) {
         model.addAttribute("checkItem", checkItemRepository.all());
 
-        return "doctor/check";
+        return "doctor/search/checklist";
     }
 
     @RequestMapping(value = "/searchcheckinfo", method = RequestMethod.POST)
@@ -157,7 +157,7 @@ public class SearchController {
 
         patientExams.stream().forEach(exam -> System.out.println(exam.getCheckList().getPhysicSign()));
 
-        return "doctor/check";
+        return "doctor/search/checklist";
     }
 
 

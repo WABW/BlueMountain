@@ -17,14 +17,14 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="../component/navbar.jsp" flush="true">
+<jsp:include page="../../component/navbar.jsp" flush="true">
     <jsp:param name="pages" value="checklist"/>
 </jsp:include>
 <!—自适应布局-->
 <div class="container">
     <div class="row">
         <!—左侧导航栏-->
-        <jsp:include page="../search/sidebar.jsp" flush="true">
+        <jsp:include page="../../search/sidebar.jsp" flush="true">
             <jsp:param name="pages" value="checklist"/>
         </jsp:include>
         <!—右侧管理控制台-->
@@ -56,8 +56,65 @@
 
                     </sf:form>
 
+
                 </div>
             </div>
+
+            <table class=" table table-striped table-bordered table-hover">
+                <tr>
+                    <th>patientID</th>
+                    <th>patientSex</th>
+                    <th>patientBirth</th>
+                    <th>Check List</th>
+                    <th>Check List2</th>
+                    <th>Check List3</th>
+                    <th>Check List4</th>
+                    <th>Check List5</th>
+                    <th>Check List6</th>
+                    <th>Check List7</th>
+                    <th>Check List8</th>
+                    <th>Check List9</th>
+                    <th>Check List10</th>
+                    <th>Check List11</th>
+                    <th>Check List12</th>
+                    <th>Check List13</th>
+                    <th>Check List14</th>
+                    <th>Check List15</th>
+                    <th>Check List16</th>
+                    <th>Check List17</th>
+                    <th>Check List18</th>
+
+
+                </tr>
+
+                <c:forEach items="${patientExams}" var="patientExam">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>${ patientExam.checklist}</td>
+                        <td>${ patientExam.checklist.patientId}</td>
+                        <td>${ patientExam.checklist.visitId}</td>
+                        <td>${ patientExam.checklist.examsubClass}</td>
+                        <td>${ patientExam.checklist.clinicSymptom}</td>
+                        <td>${ patientExam.checklist.physicSign}</td>
+                        <td>${ patientExam.checklist.relevantDiag}</td>
+                        <td>${ patientExam.checklist.clinicDiag}</td>
+                        <td>${ patientExam.checklist.performedby}</td>
+                        <td>${ patientExam.checklist.patientsource}</td>
+                        <td>${ patientExam.checklist.requestDateTime}</td>
+                        <td>${ patientExam.checklist.requestDept}</td>
+                        <td>${ patientExam.checklist.scheduledDateTime}</td>
+                        <td>${ patientExam.checklist.notice}</td>
+                        <td>${ patientExam.checklist.resultStatus}</td>
+                        <td>${ patientExam.checklist.chargeIndicator}</td>
+                        <td>${ patientExam.checklist.chargeType}</td>
+                        <td>${ patientExam.checklist.realReportDateTime}</td>
+
+                    </tr>
+                </c:forEach>
+            </table>
+
         </div>
 </div>
 
