@@ -22,6 +22,7 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<c:set var="username" value="${username}" scope="session"/>
 <jsp:include page="../component/navbar.jsp" flush="true">
     <jsp:param name="pages" value="checklist"/>
 </jsp:include>
@@ -32,7 +33,6 @@
         <jsp:include page="../search/sidebar.jsp" flush="true">
             <jsp:param name="pages" value="checklist"/>
         </jsp:include>
-        <!—右侧管理控制台-->
 
         <div class="main">
             

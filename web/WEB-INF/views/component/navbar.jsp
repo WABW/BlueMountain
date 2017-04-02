@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 杨宗悦
@@ -91,7 +92,25 @@
                     <li><a href="#">帮助</a></li>
                 </ul>
             </div>
-            <div class="pull-right"><div class="martop8"><button type="button" class="btn  btn-danger pull-right">注销</button></div></div>
+            <c:choose>
+                <c:when test='${null != username && !username.equals("")}'>
+                    <%--<a class="btn btn-outline-danger float-lg-right" href="/logout">登出</a>--%>
+                    <div class="pull-right">
+                        <div class="martop8">
+                            <a href="/logout"><button type="button" class="btn  btn-danger pull-right">注销</button></a>
+                        </div>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <%--<a class="btn btn-outline-primary float-lg-right" href="/login">登录</a>--%>
+                    <div class="pull-right">
+                        <div class="martop8">
+                            <a href="/login"><button type="button" class="btn  btn-danger pull-right">登陆</button></a>
+                        </div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+
         </div>
     </div>
 
