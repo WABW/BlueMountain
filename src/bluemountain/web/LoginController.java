@@ -24,6 +24,8 @@ public class LoginController {
         // if doctor login
         if (authentication != null && authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_DOCTOR"))) {
             return "redirect: /doctor/home";
+        } else if (authentication != null && authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_USER"))) {
+            return "redirect: /patient/case";
         } else {
             return "redirect: /login";
         }

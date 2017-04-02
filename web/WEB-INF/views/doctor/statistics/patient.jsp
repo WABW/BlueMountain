@@ -22,76 +22,76 @@
 
 <div class="container">
     <div class="row">
-        <!—左侧导航栏-->
-        <jsp:include page="../../search/sidebar.jsp" flush="true">
-            <jsp:param name="pages" value="checklist"/>
-        </jsp:include>
+    <!—左侧导航栏-->
+    <jsp:include page="../../search/sidebar.jsp" flush="true">
+        <jsp:param name="pages" value="checklist"/>
+    </jsp:include>
 
-        <!—右侧管理控制台-->
-        <div class="main">
-            <sf:form method="POST">
-                <div class="row">
+    <!—右侧管理控制台-->
+    <div class="main">
+        <sf:form method="POST">
+            <div class="row">
 
                     <%--<form class="form-inline" method="post">--%>
-                        <div class="form-group">
+                <div class="form-group">
 
 
-                            <label for="gender" ></label>
-                            <div class="col-xs-2">
-                                <select name="gender" id="gender" class="form-control" >
-                                    <option value="">-所有性别-</option>
-                                    <option value="男">- 男性 -</option>
-                                    <option value="女">- 女性 -</option>
-                                </select>
-                            </div>
+                    <label for="gender" ></label>
+                    <div class="col-xs-2">
+                        <select name="gender" id="gender" class="form-control" >
+                            <option value="">-所有性别-</option>
+                            <option value="男">- 男性 -</option>
+                            <option value="女">- 女性 -</option>
+                        </select>
+                    </div>
 
-                            <label for="department" ></label>
-                            <div class="col-xs-2">
-                                <select name="department" id="department" class="form-control" >
-                                    <option value=""><c:out value="-所有科室-" /></option>
-                                    <c:forEach items="${departments}" var="department">
-                                        　　　　<option value="${department.departmentName}">${department.departmentName}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
+                    <label for="department" ></label>
+                    <div class="col-xs-2">
+                        <select name="department" id="department" class="form-control" >
+                            <option value=""><c:out value="-所有科室-" /></option>
+                            <c:forEach items="${departments}" var="department">
+                                　　　　<option value="${department.departmentName}">${department.departmentName}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
 
-                            <div class="col-xs-2">
-                                <input type="text" class="form-control" id="min" name="min" value="" placeholder="最小年龄">
-                            </div>
-                            <div class="col-xs-2">
-                                <input type="text" class="form-control" id="max" name="max" value="" placeholder="最大年龄">
-                            </div>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" id="min" name="min" value="" placeholder="最小年龄">
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" id="max" name="max" value="" placeholder="最大年龄">
+                    </div>
 
 
-                            <button class="btn btn-default" type="submit">Submit</button>
-                        </div>
+                    <button class="btn btn-default" type="submit">Submit</button>
+                </div>
                     <%--</form>--%>
 
-                    <table class="table table-hover">
+                <table class="table table-hover">
 
+                    <tr>
+                        <th>病患ID</th>
+                        <th>病患性别</th>
+                        <th>出生日期</th>
+                        <th>检查项数目</th>
+                        <th>检验项数目</th>
+
+                    </tr>
+
+                    <c:forEach items="${patients}" var="patient">
                         <tr>
-                            <th>病患ID</th>
-                            <th>病患性别</th>
-                            <th>出生日期</th>
-                            <th>检查项数目</th>
-                            <th>检验项数目</th>
-
+                            <td>${patient.patientId}</td>
+                            <td>${patient.sex}</td>
+                            <td>${patient.dateOfBirth}</td>
+                            <td>${patient.checkCount}</td>
+                            <td>${patient.testCount}</td>
                         </tr>
-
-                        <c:forEach items="${patients}" var="patient">
-                            <tr>
-                                <td>${patient.patientId}</td>
-                                <td>${patient.sex}</td>
-                                <td>${patient.dateOfBirth}</td>
-                                <td>${patient.checkCount}</td>
-                                <td>${patient.testCount}</td>
-                            </tr>
-                        </c:forEach>
-                    </table>
-                </div>
-            </sf:form>
-        </div>
+                    </c:forEach>
+                </table>
+            </div>
+        </sf:form>
     </div>
+</div>
 </div>
 
 
