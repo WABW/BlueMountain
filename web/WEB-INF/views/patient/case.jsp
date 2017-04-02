@@ -26,9 +26,9 @@
         <table class="table table-bordered">
             <caption>病人信息</caption>
             <tr>
-                <td>病人ID：</td>
-                <td>年龄：</td>
-                <td>性别：</td>
+                <td>病人ID：${patient.patientId}</td>
+                <td>出生日期：${patient.dateOfBirth}</td>
+                <td>性别：${patient.sex}</td>
             </tr>
         </table>
 

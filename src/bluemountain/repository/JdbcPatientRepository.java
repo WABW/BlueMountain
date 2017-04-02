@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by MainasuK on 2017-3-10.
@@ -23,6 +24,13 @@ public class JdbcPatientRepository extends JdbcRepository implements PatientRepo
     private static String patientSizeInRangeSQL = "SELECT COUNT(*) FROM\n" +
             "(SELECT TIMESTAMPDIFF(YEAR, DATE_OF_BIRTH, CURDATE()) AS age FROM patient_info) age_table\n" +
             "WHERE age_table.age >= ? AND age_table.age < ?";
+
+    private static String patientWithIdSQL = "SELECT pi.*,\n" +
+            "(SELECT COUNT(*) FROM check_list cl WHERE pi.PATIENT_ID = cl.PATIENT_ID) AS CHECK_COUNT,\n" +
+            "(SELECT COUNT(*) FROM test_list tl WHERE pi.PATIENT_ID = tl.PATIENT_ID) AS TEST_COUNT\n" +
+            "FROM patient_info pi\n" +
+            "WHERE pi.PATIENT_ID = ?";
+
 
     @Autowired
     public JdbcPatientRepository(JdbcOperations jdbcOperations) {
@@ -54,5 +62,18 @@ public class JdbcPatientRepository extends JdbcRepository implements PatientRepo
     public int quantityInRange(int min, int max) {
         // patient's age in [min, max)
         return jdbcOperations.queryForObject(patientSizeInRangeSQL, new Object[] {min, max}, Integer.class);
+    }
+
+    @Override
+    public Patient patientWithId(int id) {
+
+        List<Patient> patients = jdbcOperations.query(patientWithIdSQL, (resultSet, i) -> new Patient(resultSet), id);
+        Optional<Patient> optional = patients.stream().findFirst();
+
+        if (optional.isPresent()) {
+            return optional.get();
+        } else {
+            return null;
+        }
     }
 }

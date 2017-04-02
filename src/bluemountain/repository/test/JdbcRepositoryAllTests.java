@@ -95,4 +95,10 @@ public class JdbcRepositoryAllTests {
         Assert.notNull(new JdbcDepartmentRepository(template).all(), "");
     }
 
+    @Test
+    public void testPatientRepositoryPatientWithId() {
+        Assert.notNull(new JdbcPatientRepository(template).patientWithId(123141), "");
+    }
+
+
 }

@@ -11,4 +11,5 @@ public interface PatientRepository extends ListRepositoryProtocol<Patient> {
     int quantityOfMale();
     int quantityOfFemale();
     int quantityInRange(int min, int max);
+    Patient patientWithId(int id);
 }
