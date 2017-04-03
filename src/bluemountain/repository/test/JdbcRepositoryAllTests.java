@@ -105,4 +105,9 @@ public class JdbcRepositoryAllTests {
         Assert.notNull(new JdbcCheckListRepository(template).listsOfPatient(123141), "");
     }
 
+    @Test
+    public void testTestListRepositoryTestListWithId() {
+        Assert.notNull(new JdbcTestListRepository(template).testListWithId(123141), "");
+    }
+
 }

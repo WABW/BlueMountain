@@ -66,10 +66,8 @@ public class JdbcPatientRepository extends JdbcRepository implements PatientRepo
 
     @Override
     public Patient patientWithId(int id) {
-
         List<Patient> patients = jdbcOperations.query(patientWithIdSQL, (resultSet, i) -> new Patient(resultSet), id);
         Optional<Patient> optional = patients.stream().findFirst();
-
         if (optional.isPresent()) {
             return optional.get();
         } else {

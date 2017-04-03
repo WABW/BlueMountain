@@ -3,10 +3,12 @@ package bluemountain.repository;
 import bluemountain.pojo.TestList;
 import bluemountain.protocol.TestListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by MainasuK on 2017-3-10.
@@ -44,6 +46,11 @@ public class JdbcTestListRepository extends JdbcRepository implements TestListRe
     @Override
     public int quantityOfLastYear() {
         return jdbcOperations.queryForObject(quantityOfLastYearSQL, Integer.class);
+    }
+
+    @Override
+    public List<TestList> testListWithId(int id) {
+        return jdbcOperations.query("SELECT * FROM test_list  WHERE test_list.PATIENT_ID = ?", (resultSet, i) -> new TestList(resultSet), id);
     }
 
 }
