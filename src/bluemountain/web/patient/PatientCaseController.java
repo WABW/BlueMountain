@@ -33,6 +33,7 @@ public class PatientCaseController {
     @RequestMapping(value = "/patient/case/{patientId}", method = RequestMethod.GET)
     public String Case(@PathVariable int patientId, Model model) {
         model.addAttribute("patient", patientRepository.patientWithId(patientId));
+        model.addAttribute("checklists", checkListRepository.listsOfPatient(patientId));
 
 
         return "patient/case";
