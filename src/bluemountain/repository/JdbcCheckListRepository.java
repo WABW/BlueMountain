@@ -1,6 +1,7 @@
 package bluemountain.repository;
 
 import bluemountain.pojo.Checklist;
+import bluemountain.pojo.Patient;
 import bluemountain.protocol.CheckListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
@@ -44,5 +45,10 @@ public class JdbcCheckListRepository extends JdbcRepository implements CheckList
     @Override
     public int qunaityOfLastYear() {
         return jdbcOperations.queryForObject(quantityOfLastYearSQL, Integer.class);
+    }
+
+    @Override
+    public List<Checklist> listsOfPatient(int patientID) {
+        return jdbcOperations.query("SELECT * FROM check_list_view clv WHERE clv.PATIENT_ID = ?", (resultSet, i) -> new Checklist(resultSet), patientID);
     }
 }

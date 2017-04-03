@@ -35,7 +35,6 @@ public class PatientCaseController {
         model.addAttribute("patient", patientRepository.patientWithId(patientId));
 
 
-
         return "patient/case";
     }
 }
