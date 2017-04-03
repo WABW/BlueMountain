@@ -70,7 +70,10 @@ public class JdbcRepositoryAllTests {
 
     @Test
     public void testTestListRepositoryAll() {
-        Assert.notNull(new JdbcTestListRepository(template).all(), "");
+        List<TestList> testLists = new JdbcTestListRepository(template).all();
+        Assert.notNull(testLists, "");
+
+        testLists.stream().forEach(testList -> System.out.println(testList));
     }
 
     @Test

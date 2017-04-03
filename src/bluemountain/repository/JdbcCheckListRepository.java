@@ -49,6 +49,6 @@ public class JdbcCheckListRepository extends JdbcRepository implements CheckList
 
     @Override
     public List<Checklist> listsOfPatient(int patientID) {
-        return jdbcOperations.query("SELECT * FROM check_list_view clv WHERE clv.PATIENT_ID = ?", (resultSet, i) -> new Checklist(resultSet), patientID);
+        return jdbcOperations.query("SELECT * FROM check_list_view clv WHERE clv.PATIENT_ID = ? ORDER BY clv.REQ_DATE_TIME DESC", (resultSet, i) -> new Checklist(resultSet), patientID);
     }
 }

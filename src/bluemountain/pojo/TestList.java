@@ -1,7 +1,5 @@
 package bluemountain.pojo;
 
-import com.mysql.cj.api.x.Result;
-
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -187,5 +185,16 @@ public class TestList {
 
     public void setApplyPrintTime(int applyPrintTime) {
         this.applyPrintTime = applyPrintTime;
+    }
+
+    @Override
+    public String toString() {
+        return "\"" +
+                testNo + "\",\"" + patientID + "\",\"" + visitID + "\",\"" + executeDate + "\",\"" +
+                relevantClincDiag + "\",\"" + specimen + "\",\"" + pecmSampleDateTime + "\",\"" +
+                requestdDateTime + "\",\"" + orderingDept + "\",\"" +
+                orderProvider + "\",\"" + performedBy + "\",\"" + resultRptDateTime + "\",\"" +
+                transcriptionist + "\",\"" + verifiedBy + "\",\"" + billingIndicator + "\",\"" + applyPrintTime +
+                "\"";
     }
 }

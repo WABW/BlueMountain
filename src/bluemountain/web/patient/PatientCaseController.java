@@ -34,7 +34,7 @@ public class PatientCaseController {
     public String Case(@PathVariable int patientId, Model model) {
         model.addAttribute("patient", patientRepository.patientWithId(patientId));
         model.addAttribute("checklists", checkListRepository.listsOfPatient(patientId));
-
+        model.addAttribute("testLists", testListRepository.testListWithId(patientId));
 
         return "patient/case";
     }

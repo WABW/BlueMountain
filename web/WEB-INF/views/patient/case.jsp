@@ -32,73 +32,68 @@
             </tr>
         </table>
 
-        <table class="table table-bordered">
-            <caption>检查清单</caption>
-            <tr>
-                <td colspan="2">检查单号：</td>
-                <td colspan="2">检查子类：</td>
-            </tr>
-            <tr>
-                <td colspan="4">临床症状：</td>
-            </tr>
-            <tr>
-                <td colspan="4">体征表现：</td>
-            </tr>
-            <tr>
-                <td colspan="4">临床诊断：</td>
-            </tr>
-            <tr>
-                <td colspan="2">检查医师：</td>
-                <td colspan="2">申请时间：</td>
-            </tr>
-            <tr>
-                <td colspan="2">费用指标：</td>
-                <td colspan="2">安排时间：</td>
-            </tr>
-            <tr>
-                <td colspan="2">缴费方式：</td>
-                <td colspan="2">出单时间：</td>
-            </tr>
-            <tr>
-                <td colspan="4" rowspan="2">健康提醒：</td>
-            </tr>
-        </table>
+        <c:forEach items="${checklists}" var="checklist">
+            <table class="table table-bordered">
+                <caption>检查清单 ${checklists.indexOf(checklist)+1} / ${checklists.size()}</caption>
+                    <tr>
+                        <td colspan="2">检查单号：${checklist.examNo}</td>
+                        <td colspan="2">检查子类：${checklist.examsubClass}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">临床症状：${checklist.clinicSymptom}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">体征表现：${checklist.physicSign}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">临床诊断：${checklist.clinicDiag}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">检查医师：</td>
+                        <td colspan="2">申请时间：${checklist.requestDateTime}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">费用指标：${checklist.chargeIndicator}</td>
+                        <td colspan="2">安排时间：${checklist.scheduledDateTime}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">缴费方式：${checklist.chargeType}</td>
+                        <td colspan="2">出单时间：${checklist.realReportDateTime}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">健康提醒：${checklist.notice}</td>
+                    </tr>
+            </table>
+        </c:forEach>
 
-        <table class="table table-bordered">
-            <caption>检验清单</caption>
-            <tr>
-                <td colspan="2">检验单号：</td>
-                <td colspan="2">临床诊断：</td>
-            </tr>
-            <tr>
-                <td colspan="2">检验样本：</td>
-                <td colspan="2">项目编号：</td>
-            </tr>
+        <c:forEach items="${testLists}" var="testList">
+            <table class="table table-bordered">
+                <caption>检验清单 ${testLists.indexOf(testList) + 1} / ${testLists.size()}</caption>
+                <tr>
+                    <td colspan="2">检验单号：${testList.testNo}</td>
+                    <td colspan="2">临床诊断：${testList.relevantClincDiag}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">检验样本：${testList.specimen}</td>
+                    <td colspan="2">项目编号：</td>
+                </tr>
 
-            <tr>
-                <td colspan="2">检查时间：</td>
-                <td colspan="2">取样时间：</td>
-            </tr>
-            <tr>
-                <td colspan="2">检查状态：</td>
-                <td colspan="2">出单时间：</td>
-            </tr>
-            <tr>
-                <td>门诊编号：</td>
-                <td>主治医师：</td>
-                <td>记录人员：</td>
-                <td>验证签字：</td>
-            </tr>
-
-
-        </table>
-
-
-
-
-
-
-
+                <tr>
+                    <td colspan="2">检查时间：${testList.requestdDateTime}</td>
+                    <td colspan="2">取样时间：${testList.pecmSampleDateTime}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">检查状态：${testList.resultStatus}</td>
+                    <td colspan="2">出单时间：${testList.resultRptDateTime}</td>
+                </tr>
+                <tr>
+                    <td>门诊编号：${testList.orderingDept}</td>
+                    <td>主治医师：${testList.orderProvider}</td>
+                    <td>记录人员：${testList.transcriptionist}</td>
+                    <td>验证签字：${testList.verifiedBy}</td>
+                </tr>
+            </table>
+        </c:forEach>
     </div>
 </div>
 
