@@ -80,7 +80,7 @@
 
                     <c:forEach items="${patients}" var="patient">
                         <tr>
-                            <td>${patient.patientId}</td>
+                            <td><a href="/doctor/statistics/patient/${patient.patientId}">${patient.patientId}</a></td>
                             <td>${patient.sex}</td>
                             <td>${patient.dateOfBirth}</td>
                             <td>${patient.checkCount}</td>

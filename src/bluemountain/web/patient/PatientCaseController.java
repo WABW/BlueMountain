@@ -30,7 +30,7 @@ public class PatientCaseController {
         this.testListRepository = testListRepository;
     }
 
-    @RequestMapping(value = "/patient/case/{patientId}", method = RequestMethod.GET)
+    @RequestMapping(value = {"/patient/case/{patientId}","/doctor/statistics/patient/{patientId}"}, method = RequestMethod.GET)
     public String Case(@PathVariable int patientId, Model model) {
         model.addAttribute("patient", patientRepository.patientWithId(patientId));
         model.addAttribute("checklists", checkListRepository.listsOfPatient(patientId));
