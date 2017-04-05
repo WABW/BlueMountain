@@ -208,4 +208,12 @@ public class Checklist {
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }
+
+    public int getPerformedby() {
+        return performedby;
+    }
+
+    public void setPerformedby(int performedby) {
+        this.performedby = performedby;
+    }
 }

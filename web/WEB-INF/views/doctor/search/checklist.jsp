@@ -32,8 +32,6 @@
         <div class="main">
             <div class="panel panel-default">
                 <sf:form  method="POST">
-
-
                     <div class="form-group">
                         <div class="col-xs-2">
                             <select name="department" id="department" class="form-control">
@@ -90,22 +88,22 @@
                         <td>${patientExam.patient.patientId}</td>
                         <td>${patientExam.patient.sex}</td>
                         <td>${patientExam.patient.dateOfBirth}</td>
-                        <td>${ patientExam.checklist.visitId}</td>
-                        <td>${ patientExam.checklist.examsubClass}</td>
-                        <td>${ patientExam.checklist.clinicSymptom}</td>
-                        <td>${ patientExam.checklist.physicSign}</td>
-                        <td>${ patientExam.checklist.relevantDiag}</td>
-                        <td>${ patientExam.checklist.clinicDiag}</td>
-                        <td>${ patientExam.checklist.performedby}</td>
-                        <td>${ patientExam.checklist.patientsource}</td>
-                        <td>${ patientExam.checklist.requestDateTime}</td>
-                        <td>${ patientExam.checklist.requestDept}</td>
-                        <td>${ patientExam.checklist.scheduledDateTime}</td>
-                        <td>${ patientExam.checklist.notice}</td>
-                        <td>${ patientExam.checklist.resultStatus}</td>
-                        <td>${ patientExam.checklist.chargeIndicator}</td>
-                        <td>${ patientExam.checklist.chargeType}</td>
-                        <td>${ patientExam.checklist.realReportDateTime}</td>
+                        <td>${patientExam.checklist.visitId}</td>
+                        <td>${patientExam.checklist.examsubClass}</td>
+                        <td>${patientExam.checklist.clinicSymptom}</td>
+                        <td>${patientExam.checklist.physicSign}</td>
+                        <td>${patientExam.checklist.relevantDiag}</td>
+                        <td>${patientExam.checklist.clinicDiag}</td>
+                        <td>${patientExam.checklist.performedby}</td>
+                        <td>${patientExam.checklist.patientsource}</td>
+                        <td>${patientExam.checklist.requestDateTime}</td>
+                        <td>${patientExam.checklist.requestDept}</td>
+                        <td>${patientExam.checklist.scheduledDateTime}</td>
+                        <td>${patientExam.checklist.notice}</td>
+                        <td>${patientExam.checklist.resultStatus}</td>
+                        <td>${patientExam.checklist.chargeIndicator}</td>
+                        <td>${patientExam.checklist.chargeType}</td>
+                        <td>${patientExam.checklist.realReportDateTime}</td>
 
                     </tr>
                 </c:forEach>
