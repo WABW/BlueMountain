@@ -2,6 +2,8 @@ package bluemountain.repository.test;
 
 import bluemountain.config.DBConfig;
 import bluemountain.pojo.*;
+import bluemountain.protocol.HistoryChecklistRepository;
+import bluemountain.protocol.HistoryKeywordRepository;
 import bluemountain.repository.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -126,6 +128,18 @@ public class JdbcRepositoryAllTests {
     @Test
     public void testHistoryKeywordRepositoryAll() {
         Assert.notNull(new JdbcHistoryKeywordRepository(template).all(), "");
+    }
+
+    @Test
+    public void testSearchChecklistHistoryAll() {
+        HistoryChecklistRepository historyChecklistRepository = new JdbcHistoryChecklistRepository(template);
+        HistoryKeywordRepository historyKeywordRepository = new JdbcHistoryKeywordRepository(template);
+        List<SearchChecklistHistory> searchChecklistHistories = new JdbcSearchChecklistHistoryRepository(template, historyChecklistRepository, historyKeywordRepository).all();
+        Assert.notNull(searchChecklistHistories, "");
+        searchChecklistHistories.stream().forEach(history -> {
+            System.out.println(history.getHistoryChecklist().getNumber() + ": ");
+            history.getHistoryKeywords().forEach(keyword -> System.out.println("    " + keyword.getKeyword()));
+        });
     }
 
 }

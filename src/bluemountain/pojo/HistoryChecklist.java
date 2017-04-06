@@ -19,4 +19,27 @@ public class HistoryChecklist {
         this.timestamp = resultSet.getTimestamp("TIMESTAMP_HISTORY");
     }
 
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getPerformedBy() {
+        return performedBy;
+    }
+
+    public void setPerformedBy(int performedBy) {
+        this.performedBy = performedBy;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
 }

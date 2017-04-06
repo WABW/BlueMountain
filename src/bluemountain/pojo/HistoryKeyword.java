@@ -20,4 +20,35 @@ public class HistoryKeyword {
         this.condition = resultSet.getInt("CONDITION");
     }
 
+    public int getKeywordId() {
+        return keywordId;
+    }
+
+    public void setKeywordId(int keywordId) {
+        this.keywordId = keywordId;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public int getCondition() {
+        return condition;
+    }
+
+    public void setCondition(int condition) {
+        this.condition = condition;
+    }
 }
