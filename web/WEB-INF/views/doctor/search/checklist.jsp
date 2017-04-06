@@ -32,7 +32,7 @@
 
                 <sf:form  method="POST">
                         <div class="col-xs-2">
-                            <select name="checkItem" id="checkItem" class="form-control">
+                            <select name="examClass" id="examClass" class="form-control">
                                 <option value=""><c:out value="-检查项-" /></option>
                                 　　<c:forEach items="${checkItems}" var="checkItem">
                                 　　　　<option value="${checkItem.examclass}">${checkItem.examclass}</option>
