@@ -113,4 +113,19 @@ public class JdbcRepositoryAllTests {
         Assert.notNull(new JdbcTestListRepository(template).testListWithId(123141), "");
     }
 
+    @Test
+    public void testHistoryCheckListRepositoryAll() {
+        Assert.notNull(new JdbcHistoryChecklistRepository(template).all(), "");
+    }
+
+    @Test
+    public void testHistoryPatientRepositoryAll() {
+        Assert.notNull(new JdbcHistoryPatientRepository(template).all(), "");
+    }
+
+    @Test
+    public void testHistoryKeywordRepositoryAll() {
+        Assert.notNull(new JdbcHistoryKeywordRepository(template).all(), "");
+    }
+
 }
