@@ -32,9 +32,9 @@
 
                 <sf:form  method="POST">
                         <div class="col-xs-2">
-                            <select name="department" id="department" class="form-control">
+                            <select name="checkItem" id="checkItem" class="form-control">
                                 <option value=""><c:out value="-检查项-" /></option>
-                                　　<c:forEach items="${checkItem}" var="checkItem">
+                                　　<c:forEach items="${checkItems}" var="checkItem">
                                 　　　　<option value="${checkItem.examclass}">${checkItem.examclass}</option>
                             </c:forEach>
                             </select>
@@ -118,13 +118,13 @@
                         <th>2</th>
                         <th>3</th>
                     </tr>
-                    <c:forEach items="" var="">
+                    <%--<c:forEach items="" var="">--%>
                         <tr>
                             <td>a</td>
                             <td>a</td>
                             <td>a</td>
                         </tr>
-                    </c:forEach>
+                    <%--</c:forEach>--%>
                 </table>
             </div>
             <div class="modal-footer">

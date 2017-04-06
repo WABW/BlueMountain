@@ -48,9 +48,9 @@ public class ChecklistController {
 
         List<PatientExam> patientExams = patientExamRepository.all().stream().collect(Collectors.toList());
 
-        String department = request.getParameter("department");
-        if (!department.contains("不限")) {
-            patientExams = patientExams.stream().filter(exam -> exam.getChecklist().getCheckItem().getExamclass().contentEquals(department)).collect(Collectors.toList());
+        String checkItem = request.getParameter("checkItem");
+        if (!checkItem.contains("不限")) {
+            patientExams = patientExams.stream().filter(exam -> exam.getChecklist().getCheckItem().getExamclass().contentEquals(checkItem)).collect(Collectors.toList());
         }
 
         Enumeration<String> names = request.getParameterNames();
