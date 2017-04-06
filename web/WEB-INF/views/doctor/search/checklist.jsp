@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Title</title>
 
@@ -28,11 +28,9 @@
             <jsp:param name="pages" value="checklist"/>
         </jsp:include>
         <!—右侧管理控制台-->
-
         <div class="main">
-            <div class="panel panel-default">
+
                 <sf:form  method="POST">
-                    <div class="form-group">
                         <div class="col-xs-2">
                             <select name="department" id="department" class="form-control">
                                 <option value=""><c:out value="-检查项-" /></option>
@@ -46,70 +44,94 @@
                         <div class="row">
                             <a class="btn btn-default" id="add" role="button" onclick="addSelect('select-container');">增加查询条件</a>
                             <button class="btn btn-default" type="submit">Submit</button>
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                                    历史搜索
+                                </button>
+                            </div>
                         </div>
-
                         <div id="select-container" >
                         </div>
-                    </div>
-
-                    </sf:form>
-
-
-                </div>
-            </div>
-
-            <table class=" table table-striped table-bordered table-hover">
-                <tr>
-                    <th>patientID</th>
-                    <th>patientSex</th>
-                    <th>patientBirth</th>
-                    <th>Check List</th>
-                    <th>Check List2</th>
-                    <th>Check List3</th>
-                    <th>Check List4</th>
-                    <th>Check List5</th>
-                    <th>Check List6</th>
-                    <th>Check List7</th>
-                    <th>Check List8</th>
-                    <th>Check List9</th>
-                    <th>Check List10</th>
-                    <th>Check List11</th>
-                    <th>Check List12</th>
-                    <th>Check List13</th>
-                    <th>Check List14</th>
-                    <th>Check List15</th>
-                    <th>Check List16</th>
-
-
-                </tr>
-
-                <c:forEach items="${patientExams}" var="patientExam">
-                    <tr>
-                        <td>${patientExam.patient.patientId}</td>
-                        <td>${patientExam.patient.sex}</td>
-                        <td>${patientExam.patient.dateOfBirth}</td>
-                        <td>${patientExam.checklist.visitId}</td>
-                        <td>${patientExam.checklist.examsubClass}</td>
-                        <td>${patientExam.checklist.clinicSymptom}</td>
-                        <td>${patientExam.checklist.physicSign}</td>
-                        <td>${patientExam.checklist.relevantDiag}</td>
-                        <td>${patientExam.checklist.clinicDiag}</td>
-                        <td>${patientExam.checklist.performedby}</td>
-                        <td>${patientExam.checklist.patientsource}</td>
-                        <td>${patientExam.checklist.requestDateTime}</td>
-                        <td>${patientExam.checklist.requestDept}</td>
-                        <td>${patientExam.checklist.scheduledDateTime}</td>
-                        <td>${patientExam.checklist.notice}</td>
-                        <td>${patientExam.checklist.resultStatus}</td>
-                        <td>${patientExam.checklist.chargeIndicator}</td>
-                        <td>${patientExam.checklist.chargeType}</td>
-                        <td>${patientExam.checklist.realReportDateTime}</td>
-
-                    </tr>
-                </c:forEach>
-            </table>
-
+                </sf:form>
         </div>
+
+        <table class=" table table-striped table-bordered table-hover ">
+            <tr>
+                <th>patientID</th>
+                <th>patientSex</th>
+                <th>patientBirth</th>
+                <th>Check List</th>
+                <th>Check List2</th>
+                <th>Check List3</th>
+                <th>Check List4</th>
+                <th>Check List5</th>
+                <th>Check List6</th>
+                <th>Check List7</th>
+                <th>Check List8</th>
+                <th>Check List9</th>
+                <th>Check List10</th>
+                <th>Check List11</th>
+                <th>Check List12</th>
+                <th>Check List13</th>
+                <th>Check List14</th>
+                <th>Check List15</th>
+                <th>Check List16</th>
+            </tr>
+
+            <c:forEach items="${patientExams}" var="patientExam">
+                <tr>
+                    <td>${patientExam.patient.patientId}</td>
+                    <td>${patientExam.patient.sex}</td>
+                    <td>${patientExam.patient.dateOfBirth}</td>
+                    <td>${patientExam.checklist.visitId}</td>
+                    <td>${patientExam.checklist.examsubClass}</td>
+                    <td>${patientExam.checklist.clinicSymptom}</td>
+                    <td>${patientExam.checklist.physicSign}</td>
+                    <td>${patientExam.checklist.relevantDiag}</td>
+                    <td>${patientExam.checklist.clinicDiag}</td>
+                    <td>${patientExam.checklist.performedby}</td>
+                    <td>${patientExam.checklist.patientsource}</td>
+                    <td>${patientExam.checklist.requestDateTime}</td>
+                    <td>${patientExam.checklist.requestDept}</td>
+                    <td>${patientExam.checklist.scheduledDateTime}</td>
+                    <td>${patientExam.checklist.notice}</td>
+                    <td>${patientExam.checklist.resultStatus}</td>
+                    <td>${patientExam.checklist.chargeIndicator}</td>
+                    <td>${patientExam.checklist.chargeType}</td>
+                    <td>${patientExam.checklist.realReportDateTime}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">最近搜索历史</h4>
+            </div>
+            <div>
+                <table class=" table table-striped table-bordered table-hover" >
+                    <tr>
+                        <th >1</th>
+                        <th>2</th>
+                        <th>3</th>
+                    </tr>
+                    <c:forEach items="" var="">
+                        <tr>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>a</td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -138,13 +160,18 @@
         newDiv.innerHTML= html;
         document.getElementById(divname).appendChild(newDiv);
     }
-    
+
     function delSelect(_element) {
         var _parentElement = _element.parentNode;
         if(_parentElement){
             _parentElement.removeChild(_element);
         }
 
+    }
+
+    function submitSelect(){
+        var forms1 = document.submitSelect;
+        forms1.submit();//form表单提交
     }
 
 </script>
