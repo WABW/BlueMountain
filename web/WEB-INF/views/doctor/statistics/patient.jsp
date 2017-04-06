@@ -22,76 +22,106 @@
 
 <div class="container">
     <div class="row">
-    <!—左侧导航栏-->
-    <jsp:include page="../../search/sidebar.jsp" flush="true">
-        <jsp:param name="pages" value="checklist"/>
-    </jsp:include>
+        <!—左侧导航栏-->
+        <jsp:include page="../../search/sidebar.jsp" flush="true">
+            <jsp:param name="pages" value="checklist"/>
+        </jsp:include>
 
-    <!—右侧管理控制台-->
-    <div class="main">
-        <sf:form method="POST">
-            <div class="row">
+        <!—右侧管理控制台-->
+        <div class="main">
+            <sf:form method="POST">
+                <div class="row">
+                        <%--<form class="form-inline" method="post">--%>
+                    <div class="form-group">
 
-                    <%--<form class="form-inline" method="post">--%>
-                <div class="form-group">
+                        <label for="gender" ></label>
+                        <div class="col-xs-2">
+                            <select name="gender" id="gender" class="form-control" >
+                                <option value="">-所有性别-</option>
+                                <option value="男">- 男性 -</option>
+                                <option value="女">- 女性 -</option>
+                            </select>
+                        </div>
 
+                        <label for="department" ></label>
+                        <div class="col-xs-2">
+                            <select name="department" id="department" class="form-control" >
+                                <option value=""><c:out value="-所有科室-" /></option>
+                                <c:forEach items="${departments}" var="department">
+                                    　　　　<option value="${department.departmentName}">${department.departmentName}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
 
-                    <label for="gender" ></label>
-                    <div class="col-xs-2">
-                        <select name="gender" id="gender" class="form-control" >
-                            <option value="">-所有性别-</option>
-                            <option value="男">- 男性 -</option>
-                            <option value="女">- 女性 -</option>
-                        </select>
+                        <div class="col-xs-2">
+                            <input type="text" class="form-control" id="min" name="min" value="" placeholder="最小年龄">
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="text" class="form-control" id="max" name="max" value="" placeholder="最大年龄">
+                        </div>
+
+                        <button class="btn btn-default" type="submit">Submit</button>
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                                历史搜索
+                            </button>
+                        </div>
                     </div>
-
-                    <label for="department" ></label>
-                    <div class="col-xs-2">
-                        <select name="department" id="department" class="form-control" >
-                            <option value=""><c:out value="-所有科室-" /></option>
-                            <c:forEach items="${departments}" var="department">
-                                　　　　<option value="${department.departmentName}">${department.departmentName}</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-
-                    <div class="col-xs-2">
-                        <input type="text" class="form-control" id="min" name="min" value="" placeholder="最小年龄">
-                    </div>
-                    <div class="col-xs-2">
-                        <input type="text" class="form-control" id="max" name="max" value="" placeholder="最大年龄">
-                    </div>
-
-
-                    <button class="btn btn-default" type="submit">Submit</button>
-                </div>
-                    <%--</form>--%>
-
-                <table class="table table-hover">
-
-                    <tr>
-                        <th>病患ID</th>
-                        <th>病患性别</th>
-                        <th>出生日期</th>
-                        <th>检查项数目</th>
-                        <th>检验项数目</th>
-
-                    </tr>
-
-                    <c:forEach items="${patients}" var="patient">
+                        <%--</form>--%>
+                    <table class="table table-hover" style="table-layout:fixed">
                         <tr>
-                            <td><a href="/doctor/statistics/patient/${patient.patientId}">${patient.patientId}</a></td>
-                            <td>${patient.sex}</td>
-                            <td>${patient.dateOfBirth}</td>
-                            <td>${patient.checkCount}</td>
-                            <td>${patient.testCount}</td>
+                            <th width="5%">病患ID</th>
+                            <th>病患性别</th>
+                            <th>出生日期</th>
+                            <th>检查项数目</th>
+                            <th>检验项数目</th>
+
                         </tr>
-                    </c:forEach>
-                </table>
-            </div>
-        </sf:form>
+                        <c:forEach items="${patients}" var="patient">
+                            <tr>
+                                <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"><a href="/doctor/statistics/patient/${patient.patientId}">${patient.patientId}</a></td>
+                                <td>${patient.sex}</td>
+                                <td>${patient.dateOfBirth}</td>
+                                <td>${patient.checkCount}</td>
+                                <td>${patient.testCount}</td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+            </sf:form>
+        </div>
     </div>
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">最近搜索历史</h4>
+            </div>
+            <div>
+                <table class=" table table-striped table-bordered table-hover" >
+                    <tr>
+                        <th >1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                    </tr>
+                    <%--<c:forEach items="" var="">--%>
+                        <tr>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>a</td>
+                        </tr>
+                    <%--</c:forEach>--%>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
