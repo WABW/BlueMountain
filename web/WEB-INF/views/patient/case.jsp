@@ -33,6 +33,12 @@
         </table>
 
         <c:forEach items="${checklists}" var="checklist">
+            <div class="pull-right">
+                <button type="button" class="btn btn-default" >
+                    导出到excel
+                </button>
+            </div>
+            <div id="tab">
             <table class="table table-bordered">
                 <caption>检查清单 ${checklists.indexOf(checklist)+1} / ${checklists.size()}</caption>
                     <tr>
@@ -64,11 +70,11 @@
                         <td colspan="4">健康提醒：${checklist.notice}</td>
                     </tr>
             </table>
+            </div>
         </c:forEach>
 
         <c:forEach items="${testLists}" var="testList">
             <table class="table table-bordered">
-                <caption>检验清单 ${testLists.indexOf(testList) + 1} / ${testLists.size()}</caption>
                 <tr>
                     <td colspan="2">检验单号：${testList.testNo}</td>
                     <td colspan="2">临床诊断：${testList.relevantClincDiag}</td>
@@ -97,10 +103,25 @@
     </div>
 </div>
 
+<script>
+    $(function () {
+        $('Button').click(function () {
+            var blob = new Blob([document.getElementById('tab').innerHTML], {
+                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
+            });
+            var strFile = "Report.xls";
+            saveAs(blob, strFile);
+            return false;
+        });
+    });
+</script>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/resources/Bootstrap/js/bootstrap.min.js"></script>
+<script src="/resources/checkScript/FileSaver.min.js"></script>
+<script src="/resources/checkScript/Blob.js"></script>
 </body>
 </html>
 
