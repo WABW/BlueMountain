@@ -30,7 +30,7 @@
         <!—右侧管理控制台-->
         <div class="main">
 
-                <sf:form  method="POST">
+                <sf:form  method="POST" name="searchCheckList" onsubmit="return validate_checklist(this);">
                         <div class="col-xs-2">
                             <select name="examClass" id="examClass" class="form-control">
                                 <option value=""><c:out value="-检查项-" /></option>
@@ -155,7 +155,7 @@
         for(i = 0; i < dates.length; i++) {
             html += "<option value='"+dates[i]+"'>"+dates[i]+"</option>";
         }
-        html += '</select>-<input  name=input'+inputtem+'>';
+        html += '</select>-<input  name=input'+inputtem+' required="required">';
         html += '<a href="#" onclick="delSelect(this.parentNode)">X</a>';
         newDiv.innerHTML= html;
         document.getElementById(divname).appendChild(newDiv);
@@ -181,5 +181,6 @@
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/resources/Bootstrap/js/bootstrap.min.js"></script>
+<script src="/resources/checkScript/inputCheck.js"></script
 </body>
 </html>

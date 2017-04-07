@@ -29,7 +29,7 @@
 
         <!—右侧管理控制台-->
         <div class="main">
-            <sf:form method="POST">
+            <sf:form method="POST" name="searchPaitent" onsubmit="return validate_patient(this);">
                 <div class="row">
                         <%--<form class="form-inline" method="post">--%>
                     <div class="form-group">
@@ -130,5 +130,6 @@
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/resources/Bootstrap/js/bootstrap.min.js"></script>
+<script src="/resources/checkScript/inputCheck.js"></script>
 </body>
 </html>
