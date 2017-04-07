@@ -1,8 +1,11 @@
 package bluemountain.web.doctor.statistics;
 
+import bluemountain.pojo.Department;
+import bluemountain.pojo.HistoryPatient;
 import bluemountain.pojo.Patient;
 import bluemountain.pojo.PatientExam;
 import bluemountain.protocol.DepartmentRepository;
+import bluemountain.protocol.HistoryPatientRepository;
 import bluemountain.protocol.PatientExamRepository;
 import bluemountain.protocol.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.security.Principal;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
@@ -26,12 +31,14 @@ public class PatientController {
     private PatientRepository patientRepository;
     private PatientExamRepository patientExamRepository;
     private DepartmentRepository departmentRepository;
+    private HistoryPatientRepository historyPatientRepository;
 
     @Autowired
-    public PatientController(PatientRepository patientRepository, PatientExamRepository patientExamRepository, DepartmentRepository departmentRepository) {
+    public PatientController(PatientRepository patientRepository, PatientExamRepository patientExamRepository, DepartmentRepository departmentRepository, HistoryPatientRepository historyPatientRepository) {
         this.patientRepository = patientRepository;
         this.patientExamRepository = patientExamRepository;
         this.departmentRepository = departmentRepository;
+        this.historyPatientRepository = historyPatientRepository;
     }
 
     @RequestMapping(value = "doctor/statistics/patient", method = RequestMethod.GET)
@@ -43,13 +50,35 @@ public class PatientController {
     }
 
     @RequestMapping(value = "doctor/statistics/patient", method = RequestMethod.POST)
-    public String patient(Model model, String gender, Integer min, Integer max, String department) {
-        model.addAttribute("departments", departmentRepository.all());
+    public String patient(Principal principal, Model model, String gender, Integer min, Integer max, String department) {
+        List<Department> departments = departmentRepository.all();
+        model.addAttribute("departments", departments);
 
         System.out.println(gender);
         System.out.println(min);
         System.out.println(max);
         System.out.println(department);
+
+        departments.stream().filter(dept -> dept.getDepartmentName().equals(department)).findFirst().ifPresent(dept -> {
+            int minAge = (null != min) ? min : -1;
+            int maxAge = (null != max) ? max : -1;
+            String sex;
+            if (gender.contains("男")) {
+                sex = "男";
+            } else if (gender.contains("女")) {
+                sex = "女";
+            } else {
+                sex = "无";
+            }
+
+            String username = principal.getName();
+            try {
+                historyPatientRepository.save(sex, dept.getRequestDepartmentId(), minAge, maxAge, username);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        });
 
         List<PatientExam> patientExams = patientExamRepository.all();
 
