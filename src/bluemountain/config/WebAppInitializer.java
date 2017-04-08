@@ -1,7 +1,11 @@
 package bluemountain.config;
 
+import bluemountain.web.doctor.DoctorHomeController;
+import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 /**
@@ -29,5 +33,6 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
         // Enable Not Found Exception throw
         registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
     }
+    
 
 }

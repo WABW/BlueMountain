@@ -9,6 +9,7 @@
 <%--Just Demo--%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
@@ -57,7 +58,7 @@
                                 <div class="alert alert-danger" role="alert">
                                     <span><strong>病人：</strong>${patient.patientId}</span>
                                     <p class="pull-right">
-                                        <a style="display:inline" class="btn btn-success" href="#">详情</a>
+                                        <a style="display:inline" class="btn btn-success" href="/doctor/statistics/patient/${patient.patientId}">详情</a>
                                     </p>
                                 </div>
                             </c:forEach>
