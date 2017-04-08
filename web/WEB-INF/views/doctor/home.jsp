@@ -53,15 +53,14 @@
                         </div>
                         <!—panel面板的内容，下同-->
                         <div class="panel-body">
-                            <div class="alert alert-danger" role="alert">
-                                <strong>病人：</strong>王二<button type="button" class="btn  btn-success pull-right">详情</button>
-                            </div>
-                            <div class="alert alert-success" role="alert">
-                                <strong>病人：</strong>王五<button type="button" class="btn  btn-success pull-right">详情</button>
-                            </div>
-                            <div class="alert alert-warning" role="alert">
-                                <strong>病人：</strong>王六<button type="button" class="btn  btn-success pull-right">详情</button>
-                            </div>
+                            <c:forEach items="${newestThreeCheckedPatients}" var="patient">
+                                <div class="alert alert-danger" role="alert">
+                                    <span><strong>病人：</strong>${patient.patientId}</span>
+                                    <p class="pull-right">
+                                        <a style="display:inline" class="btn btn-success" href="#">详情</a>
+                                    </p>
+                                </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>

@@ -30,7 +30,11 @@ public class JdbcPatientRepository extends JdbcRepository implements PatientRepo
             "(SELECT COUNT(*) FROM test_list tl WHERE pi.PATIENT_ID = tl.PATIENT_ID) AS TEST_COUNT\n" +
             "FROM patient_info pi\n" +
             "WHERE pi.PATIENT_ID = ?";
-
+    private static String patientNewestSQL = "SELECT pev.*,\n" +
+            "(SELECT COUNT(*) FROM check_list cl WHERE pev.PATIENT_ID = cl.PATIENT_ID) AS CHECK_COUNT,\n" +
+            "(SELECT COUNT(*) FROM test_list tl WHERE pev.PATIENT_ID = tl.PATIENT_ID) AS TEST_COUNT\n" +
+            "FROM patient_exam_view pev\n" +
+            "ORDER BY REQ_DATE_TIME DESC LIMIT ?";
 
     @Autowired
     public JdbcPatientRepository(JdbcOperations jdbcOperations) {
@@ -74,4 +78,10 @@ public class JdbcPatientRepository extends JdbcRepository implements PatientRepo
             return null;
         }
     }
+
+    @Override
+    public List<Patient> newestPatientsOf(int num) {
+        return jdbcOperations.query(patientNewestSQL, (resultSet, i) -> new Patient(resultSet), num);
+    }
+
 }
