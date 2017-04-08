@@ -53,6 +53,17 @@ public class DoctorHomeController {
 
         model.addAttribute("newestThreeCheckedPatients", patientRepository.newestPatientsOf(3));
 
+        model.addAttribute("checkQuantityOfMale", patientRepository.quantityOfMale());
+        model.addAttribute("checkQuantityOfFemale", patientRepository.quantityOfFemale());
+
+        model.addAttribute("checkQuantityOfAge2", patientRepository.quantityInRange(0,20));
+        model.addAttribute("checkQuantityOfAge3", patientRepository.quantityInRange(20,30));
+        model.addAttribute("checkQuantityOfAge4", patientRepository.quantityInRange(30,40));
+        model.addAttribute("checkQuantityOfAge5", patientRepository.quantityInRange(40,50));
+        model.addAttribute("checkQuantityOfAge6", patientRepository.quantityInRange(50,60));
+        model.addAttribute("checkQuantityOfAge10", patientRepository.quantityInRange(60,150));
+
+
         return "doctor/home";
     }
 

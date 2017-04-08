@@ -9,7 +9,6 @@
 <%--Just Demo--%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
@@ -18,7 +17,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Title</title>
-
+    <script src="/resources/checkScript/echarts.js"></script>
     <!-- Bootstrap -->
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -138,7 +137,141 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div id="chart" style="width: 600px;height:400px;float:left;" ></div>
+                <div id="chart2"  style="width: 600px;height:400px;float:left;"> </div>
+            </div>
+
+            <script type="text/javascript">
+                var male = "${checkQuantityOfMale}";
+                var female = "${checkQuantityOfFemale}";
+                var myChart = echarts.init(document.getElementById('chart'));
+                var option = {
+                    title : {
+                        text: '病患男女比例',
+                        x:'center'
+                    },
+                    tooltip : {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        left: 'left',
+                        data: ['男','女']
+                    },
+                    series : [
+                        {
+                            name: '来源:数据中心',
+                            type: 'pie',
+                            radius : '55%',
+                            center: ['50%', '50%'],
+                            data:[
+                                {value:male, name:'男'},
+                                {value:female, name:'女'}
+                            ],
+                            itemStyle: {
+                                emphasis: {
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        }
+                    ]
+                };
+                myChart.setOption(option);
+            </script>
+
+            <script type="text/javascript">
+                var myChart2 = echarts.init(document.getElementById('chart2'));
+                var a = ${checkQuantityOfAge2};
+                var b = ${checkQuantityOfAge3};
+                var c = ${checkQuantityOfAge4};
+                var d = ${checkQuantityOfAge5};
+                var e = ${checkQuantityOfAge6};
+                var f = ${checkQuantityOfAge10};
+                var option = {
+                    backgroundColor: '#',
+
+                    title: {
+                        text: '年龄分布',
+                        x:'center'
+                    },
+
+                    tooltip : {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+
+                    visualMap: {
+                        show: false,
+                        min: 80,
+                        max: 600,
+                        inRange: {
+                            colorLightness: [0.6, 1]
+                        }
+                    },
+
+                    series : [
+                        {
+                            name:'来源：数据中心',
+                            type:'pie',
+                            radius : '55%',
+                            center: ['50%', '50%'],
+                            data:[
+                                {value:a, name:'20以下'},
+                                {value:b, name:'20-30'},
+                                {value:c, name:'30-40'},
+                                {value:d, name:'40-50'},
+                                {value:e, name:'50-60'},
+                                {value:f, name:'60以上'}
+//                                {value:335, name:'直接访问'},
+//                                {value:310, name:'邮件营销'},
+//                                {value:274, name:'联盟广告'},
+//                                {value:235, name:'视频广告'},
+//                                {value:400, name:'搜索引擎'}
+                            ].sort(function (a, b) { return a.value - b.value}),
+                            roseType: 'angle',
+                            label: {
+                                normal: {
+                                    textStyle: {
+                                        color: 'rgba(1, 1, 1, 1)'
+                                    }
+                                }
+                            },
+                            labelLine: {
+                                normal: {
+                                    lineStyle: {
+                                        color: 'rgba(1, 1, 1, 0.5)'
+                                    },
+                                    smooth: 0.2,
+                                    length: 10,
+                                    length2: 20
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: '#c23531',
+                                    shadowBlur: 200,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            },
+
+                            animationType: 'scale',
+                            animationEasing: 'elasticOut',
+                            animationDelay: function (idx) {
+                                return Math.random() * 200;
+                            }
+                        }
+                    ]
+                };
+                myChart2.setOption(option);
+            </script>
+
         </div>
+
+
     </div>
 </div>
 
