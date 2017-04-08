@@ -107,4 +107,6 @@ public class PatientController {
         return "doctor/statistics/patient";
     }
 
+
+
 }

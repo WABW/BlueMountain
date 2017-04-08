@@ -1,4 +1,4 @@
-package bluemountain.web.patient;
+package bluemountain.web.doctor.export;
 
 import bluemountain.protocol.CheckListRepository;
 import bluemountain.protocol.PatientRepository;
@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Created by 54472 on 2017/4/2.
+ * Created by 54472 on 2017/4/7.
  */
-
 @Controller
-public class PatientCaseController {
+public class ExportDateController {
     private PatientRepository patientRepository;
     private CheckListRepository checkListRepository;
     private TestListRepository testListRepository;
 
     @Autowired
-    public PatientCaseController(PatientRepository patientRepository,
+    public ExportDateController(PatientRepository patientRepository,
                                  CheckListRepository checkListRepository,
                                  TestListRepository testListRepository) {
         this.patientRepository = patientRepository;
@@ -29,12 +28,11 @@ public class PatientCaseController {
         this.testListRepository = testListRepository;
     }
 
-    @RequestMapping(value = {"/patient/case/{patientId}","/doctor/statistics/patient/{patientId}"}, method = RequestMethod.GET)
-    public String Case(@PathVariable int patientId, Model model) {
+    @RequestMapping(value = {"/doctor/exportChecklist/{patientId}"},method = RequestMethod.GET)
+    public String Export(@PathVariable int patientId, Model model) {
         model.addAttribute("patient", patientRepository.patientWithId(patientId));
         model.addAttribute("checklists", checkListRepository.listsOfPatient(patientId));
         model.addAttribute("testLists", testListRepository.testListWithId(patientId));
-        return "patient/case";
+        return "patient/exportChecklist";
     }
-
 }

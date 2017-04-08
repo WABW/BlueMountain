@@ -16,13 +16,20 @@
     <link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="../component/navbar.jsp" flush="true">
+<jsp:param name="pages" value="checklist"/>
+</jsp:include>
 
 <div class="container">
+
     <div class="row">
         <!—左侧导航栏-->
         <jsp:include page="../search/sidebar.jsp" flush="true">
             <jsp:param name="pages" value="checklist"/>
         </jsp:include>
+        <div class="pull-right">
+            <a href="/doctor/exportChecklist/${patient.patientId}" target="_blank"><button type="button"  class="btn btn-lg btn-success">导出所有检查清单</button></a>
+        </div>
         <table class="table table-bordered">
             <caption>病人信息</caption>
             <tr>
@@ -33,48 +40,42 @@
         </table>
 
         <c:forEach items="${checklists}" var="checklist">
-            <div class="pull-right">
-                <button type="button" class="btn btn-default" >
-                    导出到excel
-                </button>
-            </div>
-            <div id="tab">
             <table class="table table-bordered">
                 <caption>检查清单 ${checklists.indexOf(checklist)+1} / ${checklists.size()}</caption>
-                    <tr>
-                        <td colspan="2">检查单号：${checklist.examNo}</td>
-                        <td colspan="2">检查子类：${checklist.examsubClass}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4">临床症状：${checklist.clinicSymptom}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4">体征表现：${checklist.physicSign}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4">临床诊断：${checklist.clinicDiag}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">检查医师：</td>
-                        <td colspan="2">申请时间：${checklist.requestDateTime}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">费用指标：${checklist.chargeIndicator}</td>
-                        <td colspan="2">安排时间：${checklist.scheduledDateTime}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">缴费方式：${checklist.chargeType}</td>
-                        <td colspan="2">出单时间：${checklist.realReportDateTime}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4">健康提醒：${checklist.notice}</td>
-                    </tr>
+                <tr>
+                    <td colspan="2">检查单号：${checklist.examNo}</td>
+                    <td colspan="2">检查子类：${checklist.examsubClass}</td>
+                </tr>
+                <tr>
+                    <td colspan="4">临床症状：${checklist.clinicSymptom}</td>
+                </tr>
+                <tr>
+                    <td colspan="4">体征表现：${checklist.physicSign}</td>
+                </tr>
+                <tr>
+                    <td colspan="4">临床诊断：${checklist.clinicDiag}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">检查医师：</td>
+                    <td colspan="2">申请时间：${checklist.requestDateTime}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">费用指标：${checklist.chargeIndicator}</td>
+                    <td colspan="2">安排时间：${checklist.scheduledDateTime}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">缴费方式：${checklist.chargeType}</td>
+                    <td colspan="2">出单时间：${checklist.realReportDateTime}</td>
+                </tr>
+                <tr>
+                    <td colspan="4">健康提醒：${checklist.notice}</td>
+                </tr>
             </table>
-            </div>
         </c:forEach>
 
         <c:forEach items="${testLists}" var="testList">
             <table class="table table-bordered">
+                <caption>检验清单 ${testLists.indexOf(testList)+1} / ${testLists.size()}</caption>
                 <tr>
                     <td colspan="2">检验单号：${testList.testNo}</td>
                     <td colspan="2">临床诊断：${testList.relevantClincDiag}</td>
@@ -103,18 +104,18 @@
     </div>
 </div>
 
-<script>
-    $(function () {
-        $('Button').click(function () {
-            var blob = new Blob([document.getElementById('tab').innerHTML], {
-                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
-            });
-            var strFile = "Report.xls";
-            saveAs(blob, strFile);
-            return false;
-        });
-    });
-</script>
+<%--<script>--%>
+    <%--$(function () {--%>
+        <%--$('Button').click(function () {--%>
+            <%--var blob = new Blob([document.getElementById('tab').innerHTML], {--%>
+                <%--type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"--%>
+            <%--});--%>
+            <%--var strFile = "Report.xls";--%>
+            <%--saveAs(blob, strFile);--%>
+            <%--return false;--%>
+        <%--});--%>
+    <%--});--%>
+<%--</script>--%>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>
