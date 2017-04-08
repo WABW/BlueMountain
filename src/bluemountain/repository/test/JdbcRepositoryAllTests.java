@@ -142,4 +142,9 @@ public class JdbcRepositoryAllTests {
         });
     }
 
+    @Test
+    public void testPatientRepositoryNewest() {
+        Assert.notNull(new JdbcPatientRepository(template).newestPatientsOf(5));
+    }
+
 }

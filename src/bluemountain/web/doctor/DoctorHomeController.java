@@ -51,6 +51,8 @@ public class DoctorHomeController {
         model.addAttribute("testQuantityOfLastMonth", testListRepository.quantityOfLastMonth());
         model.addAttribute("testQuantityOfLastYear", testListRepository.quantityOfLastYear());
 
+        model.addAttribute("newestThreeCheckedPatients", patientRepository.newestPatientsOf(3));
+
         return "doctor/home";
     }
 
