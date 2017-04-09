@@ -24,7 +24,7 @@ public class HistoryPatient {
         this.minAge = resultSet.getInt("MIN_AGE");
         this.maxAge = resultSet.getInt("MAX_AGE");
         this.historyUsername = resultSet.getString("HISTORY_USERNAME");
-        this.historyTimestamp = resultSet.getTimestamp("HISTORY_TIMESTAMP");
+        this.historyTimestamp = resultSet.getTimestamp("TIMESTAMP_HISTORY");
     }
 
     public int getHistoryHistoryPatientId() {

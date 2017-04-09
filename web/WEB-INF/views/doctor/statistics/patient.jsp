@@ -1,3 +1,5 @@
+<%@ page import="bluemountain.pojo.Department" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%--Just Demo--%>
@@ -70,7 +72,7 @@
                         <%--</form>--%>
                     <table class="table table-hover" style="table-layout:fixed">
                         <tr>
-                            <th width="5%">病患ID</th>
+                            <th>病患ID</th>
                             <th>病患性别</th>
                             <th>出生日期</th>
                             <th>检查项数目</th>
@@ -79,7 +81,7 @@
                         </tr>
                         <c:forEach items="${patients}" var="patient">
                             <tr>
-                                <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"><a href="/doctor/statistics/patient/${patient.patientId}">${patient.patientId}</a></td>
+                                <td><a href="/doctor/statistics/patient/${patient.patientId}">${patient.patientId}</a></td>
                                 <td>${patient.sex}</td>
                                 <td>${patient.dateOfBirth}</td>
                                 <td>${patient.checkCount}</td>
@@ -101,19 +103,21 @@
             <div>
                 <table class=" table table-striped table-bordered table-hover" >
                     <tr>
-                        <th >1</th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
+                        <th width="10%">性别</th>
+                        <th>科室</th>
+                        <th>最小年龄</th>
+                        <th>最大年龄</th>
+                        <th>搜索时间</th>
                     </tr>
-                    <%--<c:forEach items="" var="">--%>
+                    <c:forEach items="${historyPatients}" var="historyPatient">
                         <tr>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
+                            <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${historyPatient.sex}</td>
+                            <td>${historyPatient.requestDepartment}</td>
+                            <td>${historyPatient.minAge}</td>
+                            <td>${historyPatient.maxAge}</td>
+                            <td>${historyPatient.historyTimestamp}</td>
                         </tr>
-                    <%--</c:forEach>--%>
+                    </c:forEach>
                 </table>
             </div>
             <div class="modal-footer">

@@ -45,6 +45,7 @@ public class PatientController {
     public String patient(Model model) {
         model.addAttribute("patients", patientRepository.all());
         model.addAttribute("departments", departmentRepository.all());
+        model.addAttribute("historyPatients",historyPatientRepository.all());
 
         return "doctor/statistics/patient";
     }
@@ -106,7 +107,6 @@ public class PatientController {
 
         return "doctor/statistics/patient";
     }
-
 
 
 }
