@@ -34,135 +34,105 @@ To change this template use File | Settings | File Templates.
     <script src="bootstrap-wysiwyg.js"></script>
   </head>
   <body>
-<nav class="navbar navbar-default navbar-blue navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><strong>医疗管理系统</strong></a>
-        </div>
+  <jsp:include page="../component/navbar.jsp" flush="true">
+      <jsp:param name="pages" value="checklist"/>
+  </jsp:include>
+  <div class="container">
+  <div>
+      <jsp:include page="../search/sidebar.jsp" flush="true">
+          <jsp:param name="pages" value="checklist"/>
+      </jsp:include>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <div>
-                <ul class="nav navbar-nav">
-                    <li class=""><a href="/doctor/home">首页</a></li>
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">功能<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li class="dropdown-header">业务功能</li>
-                            <li><a href="#">添加病例</a></li>
-                            <li class="active"><a href="#">病例查询</a></li>
-                            <li><a href="#">病例管理</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">系统功能</li>
-                            <li><a href="#">设置</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">帮助</a></li>
-                </ul>
-            </div>
-            
-                
-                    
-                    <div class="pull-right">
-                        <div class="martop8">
-                            <a href="/logout"><button type="button" class="btn  btn-danger pull-right">注销</button></a>
-                        </div>
-                    </div>
-                
-                
-            
-
-        </div>
-    </div>
-
-</nav>
-       
-<div class="container">
-  <div class="hero-unit">
-    <br/> <small>知识库文章</small>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-	<hr/>
-	<!---
-	Please read this before copying the toolbar:
-
-	* One of the best things about this widget is that it does not impose any styling on you, and that it allows you 
-	* to create a custom toolbar with the options and functions that are good for your particular use. This toolbar
-	* is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read 
-	* this page to understand how to customise it:
-    * https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
-	--->
-	<div id="alerts"></div>
-    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
-      <div class="btn-group">
-        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b class="caret"></b></a>
-          <ul class="dropdown-menu">
-          </ul>
-        </div>
-      <div class="btn-group">
-        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
-          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
-          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
-          </ul>
-      </div>
-      <div class="btn-group">
-        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
-        <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
-        <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="icon-strikethrough"></i></a>
-        <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
-      </div>
-      <div class="btn-group">
-        <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="icon-list-ul"></i></a>
-        <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="icon-list-ol"></i></a>
-        <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
-        <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="icon-indent-right"></i></a>
-      </div>
-      <div class="btn-group">
-        <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
-        <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
-        <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
-        <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
-      </div>
-      <div class="btn-group">
-		  <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="icon-link"></i></a>
-		    <div class="dropdown-menu input-append">
-			    <input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
-			    <button class="btn" type="button">Add</button>
-        </div>
-        <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="icon-cut"></i></a>
-
-      </div>
-      
-      <div class="btn-group">
-        <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
-        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
-      </div>
-      <div class="btn-group">
-        <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
-        <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
-      </div>
-      <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
-    </div>
-
-    <div id="editor">
-      Go ahead&hellip;
-    </div>
-    <div>
-    <input type="button" id="test1" value="取消"/>
-    <input type="button" id="test1" value="保存"/>
-    </div>
   </div>
-</div>
+
+
+      <div class="pull-right">
+          <div class="martop8">
+              <a href="/logout"><button type="button" class="btn  btn-danger pull-right">注销</button></a>
+          </div>
+      </div>
+
+      <div class="container">
+          <div class="hero-unit">
+              <br/> <small>知识库文章</small>
+              </br>
+              </br>
+              </br>
+              </br>
+              </br>
+              <hr/>
+              <!---
+              Please read this before copying the toolbar:
+
+              * One of the best things about this widget is that it does not impose any styling on you, and that it allows you
+              * to create a custom toolbar with the options and functions that are good for your particular use. This toolbar
+              * is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read
+              * this page to understand how to customise it:
+              * https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
+              --->
+              <div id="alerts"></div>
+              <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+                  <div class="btn-group">
+                      <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                      </ul>
+                  </div>
+                  <div class="btn-group">
+                      <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+                          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+                          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+                      </ul>
+                  </div>
+                  <div class="btn-group">
+                      <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+                      <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+                      <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="icon-strikethrough"></i></a>
+                      <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+                  </div>
+                  <div class="btn-group">
+                      <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="icon-list-ul"></i></a>
+                      <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="icon-list-ol"></i></a>
+                      <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+                      <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="icon-indent-right"></i></a>
+                  </div>
+                  <div class="btn-group">
+                      <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+                      <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+                      <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+                      <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
+                  </div>
+                  <div class="btn-group">
+                      <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="icon-link"></i></a>
+                      <div class="dropdown-menu input-append">
+                          <input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
+                          <button class="btn" type="button">Add</button>
+                      </div>
+                      <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="icon-cut"></i></a>
+
+                  </div>
+
+                  <div class="btn-group">
+                      <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
+                      <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+                  </div>
+                  <div class="btn-group">
+                      <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
+                      <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+                  </div>
+                  <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
+              </div>
+
+              <div id="editor">
+              </div>
+              <div>
+                  <input type="button" id="test1" value="取消"/>
+                  <input type="button" id="test2" value="保存"/>
+              </div>
+          </div>
+      </div>
+  </div>
 <script>
   $(function(){
     function initToolbarBootstrapBindings() {
