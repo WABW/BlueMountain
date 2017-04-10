@@ -85,6 +85,7 @@
                                 <td>${patient.sex}</td>
                                 <td>${patient.dateOfBirth}</td>
                                 <td>${patient.checkCount}</td>
+                                <td>${patient.testCount}</td>
                             </tr>
                         </c:forEach>
                     </table>
