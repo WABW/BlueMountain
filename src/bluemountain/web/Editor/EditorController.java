@@ -12,7 +12,7 @@ public class EditorController {
     @RequestMapping(value = {"/editor/editor"}, method = RequestMethod.GET)
     public String editor(){
 
-        return "/editor/editor";
+        return "editor/editor1";
     }
 
 }
