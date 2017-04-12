@@ -39,8 +39,7 @@
             <p>
                 <!—一组按钮控件-->
                 <a href="/doctor/search/checklist"><button type="button"  class="btn btn-lg btn-success">病患多维查询</button></a>
-                <button type="button" class="btn btn-lg btn-primary">1</button>
-                <button type="button" class="btn btn-lg btn-info">2</button>
+                <a href="/editor/editor"><button type="button" class="btn btn-lg btn-primary">健康社区</button></a>
 
             </p>
             <div class="row">
