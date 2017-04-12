@@ -114,8 +114,22 @@
                         <tr>
                             <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${historyPatient.sex}</td>
                             <td>${historyPatient.requestDepartment}</td>
-                            <td>${historyPatient.minAge}</td>
-                            <td>${historyPatient.maxAge}</td>
+                            <c:choose>
+                                <c:when test="${historyPatient.minAge != -1}">
+                                    <td>${historyPatient.minAge}</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td>-</td>
+                                </c:otherwise>
+                            </c:choose>
+                            <c:choose>
+                                <c:when test="${historyPatient.maxAge != -1}">
+                                    <td>${historyPatient.maxAge}</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td>-</td>
+                                </c:otherwise>
+                            </c:choose>
                             <td>${historyPatient.historyTimestamp}</td>
                         </tr>
                     </c:forEach>
