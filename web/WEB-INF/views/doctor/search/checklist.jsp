@@ -61,11 +61,11 @@
                 <th>patientSex</th>
                 <th>patientBirth</th>
                 <th>Check List</th>
-                <th>Check List2</th>
-                <th>Check List3</th>
-                <th>Check List4</th>
+                <th>检查子类</th>
+                <th>前期诊断</th>
+                <th>详细描述</th>
                 <th>Check List5</th>
-                <th>Check List6</th>
+                <th>确诊病状</th>
                 <th>Check List7</th>
                 <th>Check List8</th>
                 <th>Check List9</th>
@@ -73,7 +73,7 @@
                 <th>Check List11</th>
                 <th>Check List12</th>
                 <th>Check List13</th>
-                <th>Check List14</th>
+                <th>缴费类型</th>
                 <th>Check List15</th>
                 <th>Check List16</th>
             </tr>
