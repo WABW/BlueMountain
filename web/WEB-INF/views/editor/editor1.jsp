@@ -9,6 +9,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Title</title>
@@ -186,13 +187,13 @@
             </div>
         </div>
         <!-- 定义一个div容器 -->
-        <sf:form method="POST">
-            <div id="editor">
-            </div>
-            <div class="pull-right">
-            <button class="btn btn-default" type="submit">Submit</button>
-            </div>
-        </sf:form>
+
+        <div id="editor">
+        </div>
+        <div class="pull-right">
+            <button class="btn btn-default" type="submit" onclick="textcontent()">Submit</button>
+        </div>
+
         <p>&nbsp</p>
         <%--结束--%>
 </div>
@@ -202,6 +203,13 @@
 <script src="http://cdn.gbtags.com/summernote/0.5.2/summernote.min.js"></script>
 <script>
     $('#editor').summernote();
+</script>
+
+<script>
+    function textcontent() {
+        var markupStr = $('#editor').summernote('code');
+        console.log(markupStr);
+    }
 </script>
 </body>
 </html>
