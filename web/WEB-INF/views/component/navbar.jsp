@@ -77,19 +77,8 @@
             <div>
                 <ul class="nav navbar-nav">
                     <li class="<%=index%>"><a href="/doctor/home">首页</a></li>
-                    <li class="dropdown <%=function%>">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">功能<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li class="dropdown-header">业务功能</li>
-                            <li ><a href="#">添加病例</a></li>
-                            <li class="<%= function1%>"><a href="#">病例查询</a></li>
-                            <li><a href="#">病例管理</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">系统功能</li>
-                            <li><a href="#">设置</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">帮助</a></li>
+
+
                 </ul>
             </div>
             <c:choose>

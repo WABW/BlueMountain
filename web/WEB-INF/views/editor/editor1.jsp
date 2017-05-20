@@ -188,7 +188,7 @@
         </div>
         <!-- 定义一个div容器 -->
 
-        <div id="editor">
+        <div id="wabm">
         </div>
         <div class="pull-right">
             <button class="btn btn-default" type="submit" onclick="textcontent()">Submit</button>
@@ -202,12 +202,13 @@
 <script src="http://cdn.gbtags.com/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
 <script src="http://cdn.gbtags.com/summernote/0.5.2/summernote.min.js"></script>
 <script>
-    $('#editor').summernote();
+
+    $('#wabm').summernote();
 </script>
 
 <script>
     function textcontent() {
-        var markupStr = $('#editor').summernote('code');
+        var markupStr = $('#wabm').code();
         console.log(markupStr);
     }
 </script>
