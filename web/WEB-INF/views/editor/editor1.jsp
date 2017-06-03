@@ -100,62 +100,65 @@
         </div>
         <p>&nbsp</p>
 
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-10 column">
-                    <div class="page-header">
-                        <h3>
-                            经常步行的人，最终会是这样的结果!
-                        </h3>
+        <c:forEach items="${articles}" var="article">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-10 column">
+                        <div class="page-header">
+                            <h3>
+                                ${article.title}
+                            </h3>
+                        </div>
+                        <p>
+                            ${article.body}
+                        </p>    　　
+                        <p>
+                            <a class="btn" href="#">更多 »</a>
+                        </p>
                     </div>
-                    <p>
-                        世界上最好的运动是什么?走路!数据统计：每走一步，可推动人体50%的血液流动起来，活血化瘀;可挤压人体50%的血管，是简单的“血管体操”;至少可运动50%的肌肉，有助于保持肌肉总量。一起来看看走路的16条益处!<br/>1、增强记忆力随着年龄的增长，人的记忆力也在退转。步行能够增强记忆力，每天早上走路，记忆力会越来越强...
-                    </p>    　　
-                    <p>
-                        <a class="btn" href="#">更多 »</a>
-                    </p>
                 </div>
             </div>
-        </div>
-        <p>&nbsp</p>
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-10 column">
-                    <div class="page-header">
-                        <h3>
+            <p>&nbsp</p>
+        </c:forEach>
 
-                            要想一辈子健康，记住医生的这10句话
-                        </h3>
-                    </div>
-                    <p>
-                        1、只吃七分饱<br/>饮食上吃到八分饱，限制总的能量摄入。而且每顿饭最好有主食，一汤三菜，外加水果和乳制品。少吃高盐、高脂、高能量食物，最朴素的、最天然的才是最健康的。<br/>
-                        2、尽量少下馆子<br/>下馆子吃饭，一顿饭摄入的脂肪和钠就超过了全天推荐的摄入量(中国疾病预防控制中心北京调查数据)。因此，经常下馆子者易...
-                    </p>
-                    <p>
-                        <a class="btn" href="#">更多 »</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <p>&nbsp</p>
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-10 column">
-                    <div class="page-header">
-                        <h3>
-                            饭后11件事为健康加分
-                        </h3>
-                    </div>
-                    <p>
-                        音乐不仅是艺术，而且可以养生健体、益寿延年，甚至可以治病疗疾。古籍《寿世保元》中有句话叫：“脾好音乐，闻声即动而磨食。”而道家也有“脾脏闻乐则磨”的说法。实际上，这两句话说的都是一个意思：音乐能够帮助消化<br/>
-                        柔和轻快的音乐，乃至赏心悦目加环境，都可以作为一种良性刺激而通过中枢神经系统调节人...
-                    </p>
-                    <p>
-                        <a class="btn" href="#">更多 »</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+        <%--<div class="container">--%>
+            <%--<div class="row clearfix">--%>
+                <%--<div class="col-md-10 column">--%>
+                    <%--<div class="page-header">--%>
+                        <%--<h3>--%>
+
+                            <%--要想一辈子健康，记住医生的这10句话--%>
+                        <%--</h3>--%>
+                    <%--</div>--%>
+                    <%--<p>--%>
+                        <%--1、只吃七分饱<br/>饮食上吃到八分饱，限制总的能量摄入。而且每顿饭最好有主食，一汤三菜，外加水果和乳制品。少吃高盐、高脂、高能量食物，最朴素的、最天然的才是最健康的。<br/>--%>
+                        <%--2、尽量少下馆子<br/>下馆子吃饭，一顿饭摄入的脂肪和钠就超过了全天推荐的摄入量(中国疾病预防控制中心北京调查数据)。因此，经常下馆子者易...--%>
+                    <%--</p>--%>
+                    <%--<p>--%>
+                        <%--<a class="btn" href="#">更多 »</a>--%>
+                    <%--</p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+        <%--<p>&nbsp</p>--%>
+        <%--<div class="container">--%>
+            <%--<div class="row clearfix">--%>
+                <%--<div class="col-md-10 column">--%>
+                    <%--<div class="page-header">--%>
+                        <%--<h3>--%>
+                            <%--饭后11件事为健康加分--%>
+                        <%--</h3>--%>
+                    <%--</div>--%>
+                    <%--<p>--%>
+                        <%--音乐不仅是艺术，而且可以养生健体、益寿延年，甚至可以治病疗疾。古籍《寿世保元》中有句话叫：“脾好音乐，闻声即动而磨食。”而道家也有“脾脏闻乐则磨”的说法。实际上，这两句话说的都是一个意思：音乐能够帮助消化<br/>--%>
+                        <%--柔和轻快的音乐，乃至赏心悦目加环境，都可以作为一种良性刺激而通过中枢神经系统调节人...--%>
+                    <%--</p>--%>
+                    <%--<p>--%>
+                        <%--<a class="btn" href="#">更多 »</a>--%>
+                    <%--</p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
 
         <!-- 定义一个div容器 -->
 
@@ -187,7 +190,7 @@
     function textcontent() {
         var title = $('#title').val();
         var markupStr = $('#wabm').code();
-        
+
         console.log(title);
     }
 </script>

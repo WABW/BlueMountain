@@ -79,6 +79,14 @@ public class JdbcRepositoryAllTests {
     }
 
     @Test
+    public void testArticleRepositoryAll() {
+        List<Article> articles = new JdbcArticleRepository(template).all();
+        Assert.notNull(articles,"");
+        articles.stream().forEach(article -> System.out.println(article.getArticleID()));
+
+    }
+
+    @Test
     public void testPatientExamRepositoryAll() {
         Assert.notNull(new JdbcPatientExamRepository(template).all(), "");
 
